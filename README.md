@@ -71,41 +71,43 @@
 
 ## 🗂️ रिपॉजिटरी संरचना (Folder Hierarchy)
 
-मूल डायरेक्टरी संरचना में सभी 13 जिलों और 63 प्रखंड/पंचायत फ़ोल्डरों को सुरक्षित रखते हुए व्यवस्थित किया गया है:
+मूल डायरेक्टरी संरचना में सभी 14 जिलों और प्रखंड/पंचायत फ़ोल्डरों को सुरक्षित रखते हुए व्यवस्थित किया गया है:
 
 ```text
-├── index.html                     # मुख्य वेब डैशबोर्ड (GitHub Pages Entry)
-├── voter_report.html              # लाइव सिंक डायनेमिक रिपोर्ट
-├── Digitalized_Voter_Data.xlsx    # पूर्ण एक्सेल स्प्रेडशीट (2,427 रिकॉर्ड)
+├── index.html                     # मुख्य वेब डैशबोर्ड (GitHub Pages Live Root)
+├── Digitalized_Voter_Data.xlsx    # पूर्ण एक्सेल स्प्रेडशीट (मास्टर डेटासेट)
 ├── README.md                      # विस्तृत परियोजना दस्तावेज़
 ├── .gitignore                     # Git अनचाही फाइलों को अनदेखा करने हेतु
-├── Araria/                        # अररिया जिला (Araria NP, Bhargama, Forbesganj, Kursakanta, Raniganj)
-├── Banka/                         # बांका जिला (Amarpur, Barahat, Bounsi, Fullidumar, Katoria, Rajaoun)
-├── Bhagalpur/                     # भागलपुर जिला (Bihpur, Gopalpur, Narayanpur)
-├── Jamui/                         # जमुई जिला (JhaJha, Laxmipur, Sikandra)
-├── Katihar/                       # कटिहार जिला (Katihar Sadar, Kodha)
-├── Kishanganj/                    # किशनगंज जिला (Pothiya, Bahadurganj, Tedhagachh, Thakurganj)
-├── Lakhisarai/                    # लखीसराय जिला (Chanan, Halsi, Lakhisarai Sadar)
-├── Madhepura/                     # मधेपुरा जिला (Madhepura Sadar, Shankarpur)
-├── Munger/                        # मुंगेर जिला (Kharagpur, Munger Sadar)
-├── Purnia/                        # पूर्णिया जिला (Bhavanipur, Dhamdaha)
-├── Saharsa/                       # सहरसा जिला (Banma Itarhi, Kahra, Mahishi, Nauhatta, Sattar Kataiya, Simri, Saur Bazar)
-├── Sheikhpura/                    # शेखपुरा जिला (Ariari, Barbigha, Shekhopur Sarai, Ghatkusumbha)
-└── Supaul/                        # सुपौल जिला (Kishanpur, Marauna, Nirmali, Triveniganj)
+├── Araria/                        # अररिया जिला
+├── Banka/                         # बांका जिला
+├── Bhagalpur/                     # भागलपुर जिला
+├── Jamui/                         # जमुई जिला
+├── Katihar/                       # कटिहार जिला
+├── Khagaria/                      # खगड़िया जिला
+├── Kishanganj/                    # किशनगंज जिला
+├── Lakhisarai/                    # लखीसराय जिला
+├── Madhepura/                     # मधेपुरा जिला
+├── Munger/                        # मुंगेर जिला
+├── Purnia/                        # पूर्णिया जिला
+├── Saharsa/                       # सहरसा जिला
+├── Sheikhpura/                    # शेखपुरा जिला
+└── Supaul/                        # सुपौल जिला
 ```
 
 ---
 
 ## 🚀 मुख्य वेब विशेषताएं (Web Features)
 
-1. **दोहरे दृश्य (Dual View Dock):**
-   - **सरल एक्सेल रिपोर्ट:** जमे हुए कॉलम (Frozen Columns), त्वरित खोज, सॉर्टिंग और ज़ेबरा स्ट्राइपिंग के साथ मोबाइल-अनुकूलित तालिका।
-   - **विस्तृत एनालिटिक्स:** 4 मुख्य KPI कार्ड्स, जिला-वार प्रोग्रेस बार, और अकॉर्डियन ब्लॉक व्यू।
+1. **3-दृश्य नेविगेशन डॉक (Triple View Bottom Dock):**
+   - **📊 सरल रिपोर्ट (Simple Excel View):** जमे हुए कॉलम (Frozen Columns), त्वरित खोज, सॉर्टिंग और ज़ेबरा स्ट्राइपिंग के साथ मोबाइल-अनुकूलित तालिका।
+   - **📈 विस्तृत रिपोर्ट (Strategic Command Center):** 4 मुख्य KPI कार्ड्स, पावरहाउस ब्लॉक्स, कॉलिंग रेडिनेस मैट्रिक्स, विज़ुअल कंट्रीब्यूशन बार्स और 1-क्लिक वोटर डायरेक्टरी।
+   - **👥 डुप्लिकेट ऑडिट (Duplicate & Uniqueness Audit):** 4 डिटेक्शन क्राइटेरिया (फोन/नाम/ब्लॉक/हूबहू), प्रखंड-वार यूनिक vs डुप्लिकेट टेबल, और इंटरएक्टिव वोटर क्लस्टर इंस्पेक्टर।
 2. **रीयल-टाइम गूगल शीट सिंक (Live JSONP Integration):**
    - गूगल विज़ुअलाइज़ेशन API के माध्यम से ब्राउज़र में सीधे गूगल शीट से नया डेटा लोड करता है।
+   - हर 60 सेकंड में ऑटोमैटिक बैकग्राउंड पोलिंग एवं 1-क्लिक मैन्युअल रीफ्रेश।
    - ऑफ़लाइन होने पर भी एम्बेडेड स्नैपशॉट के माध्यम से तत्काल लोड होता है।
-3. **एक-क्लिक CSV एवं PDF निर्यात:**
-   - तालिका डेटा को तुरंत CSV फ़ाइल में डाउनलोड या A4 पेज पर प्रिंट करने की सुविधा।
+3. **एक-क्लिक CSV एवं एक्सेल निर्यात:**
+   - तालिका डेटा, जिलावार रिपोर्ट, एवं डुप्लिकेट ऑडिट सूची को तुरंत Excel-कंपैटिबल UTF-8 BOM CSV फ़ाइल में डाउनलोड करने की सुविधा।
 
 ---
 

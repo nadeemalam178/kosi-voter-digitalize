@@ -307,39 +307,6 @@
             text-align: right;
         }
 
-        /* Sticky first and second columns on larger desktop screens */
-        @media (min-width: 641px) {
-            .excel-grid-table th:first-child,
-            .excel-grid-table td:first-child {
-                position: sticky;
-                left: 0;
-                z-index: 5;
-                text-align: center;
-                font-weight: 600;
-                background-color: inherit;
-                border-right: 1px solid var(--border-excel);
-                width: 48px;
-            }
-
-            .excel-grid-table th:nth-child(2),
-            .excel-grid-table td:nth-child(2) {
-                position: sticky;
-                left: 48px;
-                z-index: 5;
-                font-weight: 700;
-                background-color: inherit;
-                border-right: 2px solid var(--border-excel);
-                color: #1e3a8a;
-                min-width: 110px;
-            }
-
-            .excel-grid-table th:first-child,
-            .excel-grid-table th:nth-child(2) {
-                z-index: 15;
-                background-color: #f1f5f9;
-            }
-        }
-
         .cell-num {
             text-align: right;
             font-family: 'JetBrains Mono', monospace;
@@ -711,24 +678,24 @@
                 min-width: 100% !important;
                 table-layout: fixed !important;
             }
-            /* Explicitly disable horizontal sticky on mobile to prevent overlapping */
-            .excel-grid-table th:first-child,
-            .excel-grid-table td:first-child,
-            .excel-grid-table th:nth-child(2),
-            .excel-grid-table td:nth-child(2) {
+            /* Ensure ALL columns in the first row freeze uniformly at top: 0 */
+            .excel-grid-table thead th {
+                position: sticky !important;
+                top: 0 !important;
+                z-index: 30 !important;
+                background-color: #f1f5f9 !important;
+                border-bottom: 2px solid #cbd5e1 !important;
+                padding: 6px 3px !important;
+                font-size: 11px !important;
+            }
+
+            /* Disable sticky on body/foot td cells only */
+            .excel-grid-table tbody td,
+            .excel-grid-table tfoot td {
                 position: static !important;
                 left: auto !important;
                 z-index: 1 !important;
                 box-shadow: none !important;
-            }
-            .excel-grid-table th {
-                position: sticky !important;
-                top: 0 !important;
-                z-index: 10 !important;
-                padding: 6px 3px !important;
-                font-size: 11px !important;
-            }
-            .excel-grid-table td {
                 padding: 5px 3px !important;
                 font-size: 11px !important;
             }

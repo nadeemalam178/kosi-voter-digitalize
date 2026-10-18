@@ -485,15 +485,25 @@
 
         .dist-bar-track {
             background: #e2e8f0;
-            height: 9px;
+            height: 10px;
             border-radius: 99px;
             overflow: hidden;
+            position: relative;
+            width: 100%;
+            display: block;
         }
 
         .dist-bar-val {
             height: 100%;
+            min-height: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            display: block;
             background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
             border-radius: 99px;
+            transition: width 0.3s ease;
         }
 
         .district-accordion {
@@ -775,10 +785,22 @@
                 gap: 5px;
             }
             .dist-bar-row {
-                grid-template-columns: 80px 1fr 50px;
+                display: grid !important;
+                grid-template-columns: 85px 1fr 50px !important;
+                align-items: center !important;
+                gap: 8px !important;
+                padding: 6px 0 !important;
+                font-size: 12px !important;
             }
             .dist-bar-row div:last-child {
-                display: none;
+                display: none !important;
+            }
+            .dist-bar-track {
+                height: 10px !important;
+                min-width: 40px !important;
+            }
+            .dist-bar-val {
+                min-height: 10px !important;
             }
         }
     </style>
@@ -1329,6 +1351,7 @@
         // Initialize on load
         initDistrictDropdown();
         renderSimpleTable();
+        renderDetailedView();
         // Background live check after 800ms
         setTimeout(fetchLiveGoogleSheetData, 800);
     </script>

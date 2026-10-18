@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>कोशी मतदाता डेटा रिपोर्ट (Voter Tab Report)</title>
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --border: #e2e8f0;
+            --border-excel: #cbd5e1;
+            --text-main: #0f172a;
+            --text-sub: #475569;
+            --text-muted: #64748b;
+            --primary: #2563eb;
+            --primary-light: #eff6ff;
+            --excel-green: #107c41;
+            --excel-header: #f1f5f9;
+            --excel-zebra: #f8fafc;
+            --accent-green: #059669;
+            --accent-amber: #d97706;
+            --accent-purple: #7c3aed;
+            --shadow-dock: 0 10px 25px -5px rgba(15, 23, 42, 0.25), 0 8px 10px -6px rgba(15, 23, 42, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Outfit', 'Noto Sans Devanagari', -apple-system, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.4;
+            padding: 16px 12px 100px 12px;
+        }
+
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        /* Compact Header Bar */
+        .app-bar {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 14px 18px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .brand-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .excel-icon-box {
+            width: 36px;
+            height: 36px;
+            background: #107c41;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(16, 124, 65, 0.3);
+        }
+
+        .brand-text h1 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .brand-text p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .top-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-sm {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            background: #ffffff;
+            color: var(--text-main);
+            transition: all 0.15s;
+        }
+
+        .btn-sm:hover {
+            background: #f1f5f9;
+        }
+
+        .btn-primary-sm {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        .btn-primary-sm:hover {
+            background: #1d4ed8;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background: #10b981;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* Views Container */
+        .tab-view {
+            display: none;
+            animation: fadeIn 0.25s ease-in-out;
+        }
+
+        .tab-view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ================================================= */
+        /* VIEW 1: EXCEL SIMPLE SPREADSHEET (MOBILE OPTIMIZED) */
+        /* ================================================= */
+        .excel-sheet-card {
+            background: #ffffff;
+            border: 1px solid var(--border-excel);
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            overflow: hidden;
+        }
+
+        /* Top Toolbar / Filter */
+        .excel-toolbar {
+            background: #f8fafc;
+            border-bottom: 1px solid var(--border-excel);
+            padding: 12px 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .excel-search-input {
+            flex: 1;
+            min-width: 220px;
+            padding: 9px 14px 9px 34px;
+            font-size: 13px;
+            border: 1px solid var(--border-excel);
+            border-radius: 7px;
+            outline: none;
+            font-family: inherit;
+            background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 12px center;
+        }
+
+        .excel-search-input:focus {
+            border-color: var(--excel-green);
+            box-shadow: 0 0 0 2px rgba(16, 124, 65, 0.15);
+        }
+
+        .excel-filter-select {
+            padding: 8px 12px;
+            font-size: 13px;
+            border: 1px solid var(--border-excel);
+            border-radius: 7px;
+            background: #ffffff;
+            font-family: inherit;
+            outline: none;
+            cursor: pointer;
+        }
+
+        /* Quick summary ribbon */
+        .excel-summary-strip {
+            background: #ecfdf5;
+            border-bottom: 1px solid #d1fae5;
+            padding: 10px 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 12px;
+            color: #065f46;
+            font-weight: 600;
+        }
+
+        .summary-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .summary-pill strong {
+            color: #047857;
+            font-size: 13px;
+        }
+
+        /* Responsive Table Container with Sticky Column */
+        .table-responsive-wrapper {
+            overflow-x: auto;
+            position: relative;
+            max-height: calc(100vh - 250px);
+            min-height: 400px;
+        }
+
+        .excel-grid-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 12.5px;
+            text-align: left;
+        }
+
+        .excel-grid-table th {
+            background: #f1f5f9;
+            color: #1e293b;
+            font-weight: 700;
+            padding: 10px 12px;
+            border-right: 1px solid var(--border-excel);
+            border-bottom: 2px solid var(--border-excel);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            white-space: nowrap;
+            user-select: none;
+        }
+
+        .excel-grid-table th.sortable {
+            cursor: pointer;
+        }
+
+        .excel-grid-table th.sortable:hover {
+            background: #e2e8f0;
+        }
+
+        .excel-grid-table td {
+            padding: 8px 12px;
+            border-right: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            white-space: nowrap;
+            background-color: #ffffff;
+        }
+
+        .excel-grid-table tr:nth-child(even) td {
+            background-color: var(--excel-zebra);
+        }
+
+        .excel-grid-table tr:hover td {
+            background-color: #f1f8f3 !important;
+        }
+
+        /* Sticky first and second columns */
+        .excel-grid-table th:first-child,
+        .excel-grid-table td:first-child {
+            position: sticky;
+            left: 0;
+            z-index: 5;
+            text-align: center;
+            font-weight: 600;
+            background-color: inherit;
+            border-right: 1px solid var(--border-excel);
+            width: 50px;
+            min-width: 50px;
+        }
+
+        .excel-grid-table th:nth-child(2),
+        .excel-grid-table td:nth-child(2) {
+            position: sticky;
+            left: 50px;
+            z-index: 5;
+            font-weight: 700;
+            background-color: inherit;
+            border-right: 2px solid var(--border-excel);
+            color: #1e3a8a;
+            min-width: 110px;
+        }
+
+        .excel-grid-table th:first-child,
+        .excel-grid-table th:nth-child(2) {
+            z-index: 15;
+            background-color: #f1f5f9;
+        }
+
+        .cell-num {
+            text-align: right;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+        }
+
+        .cell-bold {
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .pct-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 1px 6px;
+            border-radius: 4px;
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        .mob-good {
+            color: #059669;
+            background: #ecfdf5;
+        }
+
+        .mob-mid {
+            color: #b45309;
+            background: #fef3c7;
+        }
+
+        .excel-footer-total td {
+            background: #f1f5f9 !important;
+            border-top: 2px solid #0f172a;
+            border-bottom: 2px solid #0f172a;
+            font-weight: 800;
+            font-size: 13px;
+        }
+
+        /* ================================================= */
+        /* VIEW 2: DETAILED ANALYTICS (EXECUTIVE DASHBOARD)  */
+        /* ================================================= */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .kpi-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 18px 20px;
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .kpi-title {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .kpi-val {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .kpi-sub {
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        .card-panel {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .card-panel-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .dist-bar-row {
+            display: grid;
+            grid-template-columns: 120px 1fr 80px 60px;
+            align-items: center;
+            gap: 12px;
+            padding: 7px 0;
+            font-size: 13px;
+            border-bottom: 1px solid #f8fafc;
+        }
+
+        .dist-bar-track {
+            background: #e2e8f0;
+            height: 9px;
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .dist-bar-val {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+            border-radius: 99px;
+        }
+
+        .district-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .accordion-item {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            background: #ffffff;
+        }
+
+        .accordion-header {
+            padding: 14px 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+            transition: background 0.15s;
+        }
+
+        .accordion-header:hover {
+            background: #f8fafc;
+        }
+
+        .accordion-item.open .accordion-header {
+            background: var(--primary-light);
+            border-bottom: 1px solid #bfdbfe;
+        }
+
+        .accordion-body {
+            display: none;
+            padding: 14px;
+            background: #fdfdfd;
+        }
+
+        .accordion-item.open .accordion-body {
+            display: block;
+        }
+
+        /* ================================================= */
+        /* FLOATING BOTTOM DOCK (MOBILE APP STYLE SWITCHER)   */
+        /* ================================================= */
+        .bottom-dock-container {
+            position: fixed;
+            bottom: 18px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        .bottom-dock {
+            pointer-events: auto;
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 9999px;
+            padding: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: var(--shadow-dock);
+        }
+
+        .dock-btn {
+            border: none;
+            background: transparent;
+            color: #94a3b8;
+            padding: 9px 20px;
+            font-size: 13.5px;
+            font-weight: 600;
+            border-radius: 9999px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: inherit;
+        }
+
+        .dock-btn:hover {
+            color: #ffffff;
+        }
+
+        .dock-btn.active {
+            background: #2563eb;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+        }
+
+        .dock-btn.active-excel {
+            background: #107c41;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(16, 124, 65, 0.4);
+        }
+
+        .dock-badge {
+            font-size: 11px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1px 6px;
+            border-radius: 99px;
+        }
+
+        /* Toast */
+        .toast-box {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 500;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            gap: 8px;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px 95px 8px;
+            }
+            .app-bar {
+                padding: 12px 14px;
+            }
+            .brand-text h1 {
+                font-size: 15px;
+            }
+            .bottom-dock {
+                width: calc(100% - 24px);
+                justify-content: space-between;
+            }
+            .dock-btn {
+                flex: 1;
+                justify-content: center;
+                padding: 9px 12px;
+                font-size: 12.5px;
+            }
+            .dist-bar-row {
+                grid-template-columns: 90px 1fr 60px;
+            }
+            .dist-bar-row div:last-child {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Top App Bar -->
+        <div class="app-bar">
+            <div class="brand-title">
+                <div class="excel-icon-box">X</div>
+                <div class="brand-text">
+                    <h1>कोशी स्नातक मतदाता रिपोर्ट <span style="font-size: 13px; font-weight: normal; color: var(--text-muted);">(Voter Tab)</span></h1>
+                    <p>
+                        <span class="status-dot"></span> <span id="syncText">गूगल शीट से लाइव कनेक्टेड</span> &bull; 
+                        <span id="updateTimeText">अपडेटेड</span>
+                    </p>
+                </div>
+            </div>
+            <div class="top-actions">
+                <button class="btn-sm btn-primary-sm" onclick="fetchLiveGoogleSheetData()">
+                    <span id="spinIcon">🔄</span> रीफ्रेश
+                </button>
+                <a href="https://docs.google.com/spreadsheets/d/13QizUlrUVOaKnNidrMzvRekqWXmcm0UyU4d7MIr6P58/edit?usp=sharing" target="_blank" class="btn-sm">
+                    शीट खोलें ↗
+                </a>
+            </div>
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- VIEW 1: SIMPLE EXCEL-STYLE VIEW (DEFAULT & MOBILE READY) -->
+        <!-- ======================================================== -->
+        <div id="viewSimple" class="tab-view active">
+            <div class="excel-sheet-card">
+                <!-- Toolbar with Search & Filter -->
+                <div class="excel-toolbar">
+                    <input type="text" id="simpleSearch" class="excel-search-input" placeholder="प्रखंड या जिला खोजें (उदा: कहरा, धमदाहा, सन्हौला)..." oninput="renderSimpleTable()">
+                    <div style="display: flex; gap: 8px;">
+                        <select id="districtFilter" class="excel-filter-select" onchange="renderSimpleTable()">
+                            <option value="">सभी 13 जिले (All Districts)</option>
+                        </select>
+                        <button class="btn-sm" onclick="downloadCSVReport()" title="CSV प्रारूप में डाउनलोड करें">
+                            📥 CSV
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Summary Ribbon -->
+                <div class="excel-summary-strip">
+                    <span class="summary-pill">👥 कुल मतदाता: <strong id="ribbonVoters">4,709</strong></span>
+                    <span class="summary-pill">🏛️ जिले: <strong id="ribbonDistricts">13</strong></span>
+                    <span class="summary-pill">📍 कुल प्रखंड: <strong id="ribbonBlocks">64</strong></span>
+                    <span class="summary-pill">📞 फोन कवरेज: <strong id="ribbonMobile">91.8%</strong></span>
+                    <span class="summary-pill" id="filterStatusText" style="color: var(--text-muted); margin-left: auto;">सभी रिकॉर्ड प्रदर्शित</span>
+                </div>
+
+                <!-- Excel Data Table with Frozen Columns -->
+                <div class="table-responsive-wrapper">
+                    <table class="excel-grid-table" id="excelGrid">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>जिला (District)</th>
+                                <th>प्रखंड (Block)</th>
+                                <th class="cell-num sortable" onclick="sortTable('total')">मतदाता संख्या ⬍</th>
+                                <th class="cell-num">जिले का हिस्सा %</th>
+                                <th class="cell-num">कुल का %</th>
+                                <th class="cell-num sortable" onclick="sortTable('mobile')">फोन नंबर ⬍</th>
+                                <th class="cell-num">फोन कवरेज %</th>
+                                <th class="cell-num sortable" onclick="sortTable('teachers')">शिक्षक/वीआईपी ⬍</th>
+                            </tr>
+                        </thead>
+                        <tbody id="excelTableBody">
+                            <!-- Injected by JavaScript -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="excel-footer-total">
+                                <td>Σ</td>
+                                <td>कुल योग</td>
+                                <td id="totalBlocksFoot">64 प्रखंड</td>
+                                <td class="cell-num" id="totalVotersFoot">4,709</td>
+                                <td class="cell-num">100%</td>
+                                <td class="cell-num">100%</td>
+                                <td class="cell-num" id="totalMobilesFoot">4,321</td>
+                                <td class="cell-num" id="totalMobilePctFoot">91.8%</td>
+                                <td class="cell-num" id="totalTeachersFoot">446</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- VIEW 2: DETAILED ANALYTICS (EXECUTIVE VISUAL DASHBOARD)  -->
+        <!-- ======================================================== -->
+        <div id="viewDetailed" class="tab-view">
+            <!-- 4 KPI Cards -->
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-title">कुल मतदाता (Voter Tab) <span>👥</span></div>
+                    <div class="kpi-val" id="detTotalVoters">4,709</div>
+                    <div class="kpi-sub">कोशी क्षेत्र नया डिजिटाइज़्ड डेटा</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-title">सक्रिय प्रखंड (Blocks) <span>📍</span></div>
+                    <div class="kpi-val" id="detTotalBlocks">64</div>
+                    <div class="kpi-sub">कुल 151 में से 64 प्रखंड सक्रिय</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-title">सत्यापित मोबाइल कवरेज <span>📞</span></div>
+                    <div class="kpi-val" id="detMobilePct">91.8%</div>
+                    <div class="kpi-sub" id="detMobileCount">4,321 मतदाताओं के फोन उपलब्ध</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-title">शीर्ष योगदानकर्ता जिला <span>🥇</span></div>
+                    <div class="kpi-val" style="color: #2563eb;" id="detTopDistrict">भागलपुर</div>
+                    <div class="kpi-sub" id="detTopDistrictSub">1,568 मतदाता (33.3%)</div>
+                </div>
+            </div>
+
+            <!-- District Comparison Visual Chart -->
+            <div class="card-panel">
+                <div class="card-panel-title">
+                    <span>📊 जिला-वार मतदाता योगदान (District Breakdown)</span>
+                    <span style="font-size: 12px; font-weight: normal; color: var(--text-muted);">उच्च से निम्न</span>
+                </div>
+                <div id="detailedBarList">
+                    <!-- Injected by JavaScript -->
+                </div>
+            </div>
+
+            <!-- District Expandable Accordions -->
+            <div class="card-panel">
+                <div class="card-panel-title">
+                    <span>📁 जिला एवं प्रखंड-वार विस्तृत सूची (Expand to view Blocks)</span>
+                    <button class="btn-sm" onclick="toggleAllAccordions()">सभी खोलें/समेटें</button>
+                </div>
+                <div class="district-accordion" id="detailedAccordion">
+                    <!-- Injected by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- FLOATING DOCK NAVIGATION (MOBILE APP BOTTOM BAR)          -->
+    <!-- ======================================================== -->
+    <div class="bottom-dock-container">
+        <div class="bottom-dock">
+            <button class="dock-btn active-excel" id="dockBtnSimple" onclick="switchView('simple')">
+                <span>📊</span>
+                <span>सरल एक्सेल रिपोर्ट</span>
+                <span class="dock-badge">तालिका</span>
+            </button>
+            <button class="dock-btn" id="dockBtnDetailed" onclick="switchView('detailed')">
+                <span>📈</span>
+                <span>विस्तृत एनालिटिक्स</span>
+                <span class="dock-badge">चार्ट</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toastBox" class="toast-box">
+        <span id="toastIcon">✅</span>
+        <span id="toastMsg">डेटा अपडेट हो गया!</span>
+    </div>
+
+    <!-- Dynamic JavaScript Engine -->
+    <script>
+        // Default snapshot (immediate offline render)
+        const snapshot = {"total_voters": 4709, "districts": {"लखीसराय": {"total": 127, "with_mobile": 83, "blocks": {"चानन": {"total": 56, "with_mobile": 56, "teachers": 8}, "सूर्यगढ़ा": {"total": 60, "with_mobile": 16, "teachers": 0}, "लखीसराय": {"total": 4, "with_mobile": 4, "teachers": 2}, "हलसी": {"total": 7, "with_mobile": 7, "teachers": 3}}}, "मुंगेर": {"total": 187, "with_mobile": 156, "blocks": {"धरहरा": {"total": 102, "with_mobile": 71, "teachers": 0}, "सदर मुंगेर": {"total": 40, "with_mobile": 40, "teachers": 13}, "हवेली खड़गपुर": {"total": 45, "with_mobile": 45, "teachers": 15}}}, "शेखपुरा": {"total": 316, "with_mobile": 314, "blocks": {"शेखपुरा": {"total": 51, "with_mobile": 49, "teachers": 0}, "अरियरी": {"total": 41, "with_mobile": 41, "teachers": 3}, "बरबीघा": {"total": 153, "with_mobile": 153, "teachers": 25}, "घाटकुसुम्भा": {"total": 34, "with_mobile": 34, "teachers": 17}, "शेखोपुरसराय": {"total": 37, "with_mobile": 37, "teachers": 3}}}, "भागलपुर": {"total": 1568, "with_mobile": 1297, "blocks": {"सुल्तानगंज": {"total": 170, "with_mobile": 156, "teachers": 24}, "शाहकुंड": {"total": 13, "with_mobile": 13, "teachers": 2}, "रिक्त (Blank)": {"total": 48, "with_mobile": 45, "teachers": 0}, "सन्हौला": {"total": 946, "with_mobile": 750, "teachers": 69}, "गोपालपुर": {"total": 236, "with_mobile": 183, "teachers": 0}, "नारायणपुर": {"total": 117, "with_mobile": 112, "teachers": 50}, "पीरपैंती": {"total": 1, "with_mobile": 1, "teachers": 1}, "बिहपुर": {"total": 32, "with_mobile": 32, "teachers": 13}, "भागलपुर": {"total": 4, "with_mobile": 4, "teachers": 4}, "सबौर": {"total": 1, "with_mobile": 1, "teachers": 1}}}, "अररिया": {"total": 382, "with_mobile": 332, "blocks": {"रिक्त (Blank)": {"total": 119, "with_mobile": 73, "teachers": 0}, "अररिया": {"total": 46, "with_mobile": 46, "teachers": 10}, "रानीगंज": {"total": 85, "with_mobile": 82, "teachers": 5}, "भरगामा": {"total": 86, "with_mobile": 85, "teachers": 7}, "कुर्साकांटा": {"total": 12, "with_mobile": 12, "teachers": 3}, "फारबिसगंज": {"total": 34, "with_mobile": 34, "teachers": 6}}}, "पूर्णिया": {"total": 467, "with_mobile": 419, "blocks": {"धमदाहा": {"total": 162, "with_mobile": 161, "teachers": 16}, "अमौर": {"total": 52, "with_mobile": 49, "teachers": 0}, "रुपौली": {"total": 209, "with_mobile": 165, "teachers": 0}, "भवानीपुर": {"total": 44, "with_mobile": 44, "teachers": 11}}}, "कटिहार": {"total": 108, "with_mobile": 107, "blocks": {"प्राणपुर": {"total": 21, "with_mobile": 20, "teachers": 0}, "कटिहार": {"total": 23, "with_mobile": 23, "teachers": 5}, "कोढ़ा": {"total": 64, "with_mobile": 64, "teachers": 11}}}, "किशनगंज": {"total": 571, "with_mobile": 484, "blocks": {"किशनगंज": {"total": 37, "with_mobile": 37, "teachers": 10}, "टेढ़ागाछ": {"total": 25, "with_mobile": 25, "teachers": 0}, "ठाकुरगंज": {"total": 238, "with_mobile": 151, "teachers": 0}, "पोठिया": {"total": 231, "with_mobile": 231, "teachers": 46}, "बहादुरगंज": {"total": 40, "with_mobile": 40, "teachers": 10}}}, "बांका": {"total": 210, "with_mobile": 210, "blocks": {"शंभूगंज": {"total": 26, "with_mobile": 26, "teachers": 0}, "अमरपुर": {"total": 111, "with_mobile": 111, "teachers": 3}, "बाराहाट": {"total": 12, "with_mobile": 12, "teachers": 3}, "बौंसी": {"total": 61, "with_mobile": 61, "teachers": 15}}}, "सहरसा": {"total": 420, "with_mobile": 408, "blocks": {"सौर बाजार": {"total": 9, "with_mobile": 9, "teachers": 2}, "पतरघट": {"total": 28, "with_mobile": 21, "teachers": 0}, "नवहट्टा": {"total": 20, "with_mobile": 15, "teachers": 0}, "कहरा": {"total": 97, "with_mobile": 97, "teachers": 20}, "नौहट्टा": {"total": 59, "with_mobile": 59, "teachers": 12}, "बनमा ईटहरी": {"total": 26, "with_mobile": 26, "teachers": 5}, "महिषी": {"total": 38, "with_mobile": 38, "teachers": 2}, "सत्तर कटैया": {"total": 76, "with_mobile": 76, "teachers": 7}, "सहरसा": {"total": 1, "with_mobile": 1, "teachers": 0}, "सिमरी बख्तियारपुर": {"total": 46, "with_mobile": 46, "teachers": 6}, "सौरबाजार": {"total": 20, "with_mobile": 20, "teachers": 3}}}, "जमुई": {"total": 120, "with_mobile": 120, "blocks": {"झाझा": {"total": 22, "with_mobile": 22, "teachers": 5}, "लक्ष्मीपुर": {"total": 6, "with_mobile": 6, "teachers": 0}, "सिकन्दरा": {"total": 92, "with_mobile": 92, "teachers": 0}}}, "मधेपुरा": {"total": 48, "with_mobile": 48, "blocks": {"मधेपुरा": {"total": 22, "with_mobile": 22, "teachers": 5}, "शंकरपुर": {"total": 26, "with_mobile": 26, "teachers": 7}}}, "सुपौल": {"total": 185, "with_mobile": 185, "blocks": {"किशनपुर": {"total": 57, "with_mobile": 57, "teachers": 3}, "त्रिवेणीगंज": {"total": 86, "with_mobile": 86, "teachers": 11}, "निर्मली": {"total": 12, "with_mobile": 12, "teachers": 3}, "मरौना": {"total": 30, "with_mobile": 30, "teachers": 9}}}}, "with_mobile": 4163, "with_designation": 1236};
+        let appData = snapshot;
+        let currentSort = { key: 'total', asc: false };
+        let allAccordionsOpen = false;
+
+        function formatNum(n) {
+            return new Intl.NumberFormat('en-IN').format(n);
+        }
+
+        function showToast(msg, icon = '✅') {
+            const t = document.getElementById('toastBox');
+            document.getElementById('toastMsg').innerText = msg;
+            document.getElementById('toastIcon').innerText = icon;
+            t.style.display = 'flex';
+            setTimeout(() => { t.style.display = 'none'; }, 3000);
+        }
+
+        // Switch between Simple Excel view and Detailed Analytics view
+        function switchView(viewName) {
+            const simpleView = document.getElementById('viewSimple');
+            const detView = document.getElementById('viewDetailed');
+            const btnSimple = document.getElementById('dockBtnSimple');
+            const btnDet = document.getElementById('dockBtnDetailed');
+
+            if (viewName === 'simple') {
+                simpleView.classList.add('active');
+                detView.classList.remove('active');
+                btnSimple.className = 'dock-btn active-excel';
+                btnDet.className = 'dock-btn';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                simpleView.classList.remove('active');
+                detView.classList.add('active');
+                btnSimple.className = 'dock-btn';
+                btnDet.className = 'dock-btn active';
+                renderDetailedView();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Populate district filter dropdown
+        function initDistrictDropdown() {
+            const sel = document.getElementById('districtFilter');
+            const currentVal = sel.value;
+            sel.innerHTML = '<option value="">सभी 13 जिले (All Districts)</option>';
+            const dists = Object.keys(appData.districts).sort((a,b) => a.localeCompare(b, 'hi'));
+            dists.forEach(d => {
+                const opt = document.createElement('option');
+                opt.value = d;
+                opt.innerText = `${d} (${appData.districts[d].total})`;
+                sel.appendChild(opt);
+            });
+            sel.value = currentVal;
+        }
+
+        // Flatten data into block rows
+        function getBlockRows() {
+            const rows = [];
+            const grandTotal = appData.total_voters || 1;
+
+            Object.keys(appData.districts).forEach(dist => {
+                const dData = appData.districts[dist];
+                Object.keys(dData.blocks).forEach(block => {
+                    const bData = dData.blocks[block];
+                    rows.push({
+                        district: dist,
+                        block: block,
+                        total: bData.total,
+                        mobile: bData.with_mobile,
+                        teachers: bData.teachers || 0,
+                        distTotal: dData.total,
+                        distSharePct: (bData.total / dData.total * 100),
+                        grandSharePct: (bData.total / grandTotal * 100),
+                        mobilePct: bData.total > 0 ? (bData.with_mobile / bData.total * 100) : 0
+                    });
+                });
+            });
+
+            return rows;
+        }
+
+        // Render Simple Excel Table
+        function renderSimpleTable() {
+            const search = document.getElementById('simpleSearch').value.trim().toLowerCase();
+            const distFilter = document.getElementById('districtFilter').value;
+            const tbody = document.getElementById('excelTableBody');
+            tbody.innerHTML = '';
+
+            let rows = getBlockRows();
+
+            // Filter
+            if (distFilter) {
+                rows = rows.filter(r => r.district === distFilter);
+            }
+            if (search) {
+                rows = rows.filter(r => r.district.toLowerCase().includes(search) || r.block.toLowerCase().includes(search));
+            }
+
+            // Sort
+            rows.sort((a, b) => {
+                const valA = a[currentSort.key];
+                const valB = b[currentSort.key];
+                if (typeof valA === 'string') {
+                    return currentSort.asc ? valA.localeCompare(valB, 'hi') : valB.localeCompare(valA, 'hi');
+                }
+                return currentSort.asc ? valA - valB : valB - valA;
+            });
+
+            // Totals for filtered set
+            let filteredVoters = 0;
+            let filteredMobiles = 0;
+            let filteredTeachers = 0;
+            const distSet = new Set();
+
+            rows.forEach((r, idx) => {
+                filteredVoters += r.total;
+                filteredMobiles += r.mobile;
+                filteredTeachers += r.teachers;
+                distSet.add(r.district);
+
+                const mobClass = r.mobilePct >= 90 ? 'mob-good' : (r.mobilePct >= 70 ? 'mob-mid' : '');
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${idx + 1}</td>
+                    <td>${r.district}</td>
+                    <td class="cell-bold">${r.block}</td>
+                    <td class="cell-num cell-bold">${formatNum(r.total)}</td>
+                    <td class="cell-num"><span class="pct-badge">${r.distSharePct.toFixed(1)}%</span></td>
+                    <td class="cell-num"><span class="pct-badge">${r.grandSharePct.toFixed(1)}%</span></td>
+                    <td class="cell-num">${formatNum(r.mobile)}</td>
+                    <td class="cell-num"><span class="pct-badge ${mobClass}">${r.mobilePct.toFixed(0)}%</span></td>
+                    <td class="cell-num">${r.teachers > 0 ? `<span style="color: #7c3aed; font-weight: 700;">${r.teachers}</span>` : '-'}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            // Update ribbons
+            document.getElementById('ribbonVoters').innerText = formatNum(filteredVoters);
+            document.getElementById('ribbonBlocks').innerText = rows.length;
+            document.getElementById('ribbonDistricts').innerText = distSet.size;
+            const mobPct = filteredVoters > 0 ? (filteredMobiles / filteredVoters * 100).toFixed(1) : 0;
+            document.getElementById('ribbonMobile').innerText = `${mobPct}%`;
+
+            // Update footer totals
+            document.getElementById('totalBlocksFoot').innerText = `${rows.length} प्रखंड`;
+            document.getElementById('totalVotersFoot').innerText = formatNum(filteredVoters);
+            document.getElementById('totalMobilesFoot').innerText = formatNum(filteredMobiles);
+            document.getElementById('totalMobilePctFoot').innerText = `${mobPct}%`;
+            document.getElementById('totalTeachersFoot').innerText = formatNum(filteredTeachers);
+
+            document.getElementById('filterStatusText').innerText = rows.length === getBlockRows().length ? 
+                'सभी 64 प्रखंड प्रदर्शित' : `${rows.length} फ़िल्टर रिकॉर्ड प्रदर्शित`;
+        }
+
+        function sortTable(key) {
+            if (currentSort.key === key) {
+                currentSort.asc = !currentSort.asc;
+            } else {
+                currentSort.key = key;
+                currentSort.asc = false;
+            }
+            renderSimpleTable();
+        }
+
+        // Render Detailed Analytics View
+        function renderDetailedView() {
+            const dists = Object.keys(appData.districts).map(d => ({
+                name: d,
+                ...appData.districts[d],
+                blockCount: Object.keys(appData.districts[d].blocks).length
+            })).sort((a,b) => b.total - a.total);
+
+            // KPIs
+            const grandTotal = appData.total_voters || 1;
+            let totalWithMob = 0;
+            let totalBlocks = 0;
+            dists.forEach(d => {
+                totalWithMob += d.with_mobile;
+                totalBlocks += d.blockCount;
+            });
+
+            document.getElementById('detTotalVoters').innerText = formatNum(grandTotal);
+            document.getElementById('detTotalBlocks').innerText = totalBlocks;
+            const mobPct = ((totalWithMob / grandTotal) * 100).toFixed(1);
+            document.getElementById('detMobilePct').innerText = `${mobPct}%`;
+            document.getElementById('detMobileCount').innerText = `${formatNum(totalWithMob)} मतदाताओं के फोन उपलब्ध`;
+
+            if (dists.length > 0) {
+                document.getElementById('detTopDistrict').innerText = dists[0].name;
+                const topPct = ((dists[0].total / grandTotal) * 100).toFixed(1);
+                document.getElementById('detTopDistrictSub').innerText = `${formatNum(dists[0].total)} मतदाता (${topPct}%)`;
+            }
+
+            // Visual Bars
+            const barList = document.getElementById('detailedBarList');
+            barList.innerHTML = '';
+            const maxVal = dists.length > 0 ? dists[0].total : 1;
+            dists.forEach(d => {
+                const pct = ((d.total / grandTotal) * 100).toFixed(1);
+                const barW = ((d.total / maxVal) * 100).toFixed(1);
+                const row = document.createElement('div');
+                row.className = 'dist-bar-row';
+                row.innerHTML = `
+                    <div style="font-weight: 600;">${d.name}</div>
+                    <div class="dist-bar-track"><div class="dist-bar-val" style="width: ${barW}%"></div></div>
+                    <div style="text-align: right; font-weight: 700;">${formatNum(d.total)}</div>
+                    <div style="text-align: right; color: var(--text-muted); font-size: 11px;">${pct}%</div>
+                `;
+                barList.appendChild(row);
+            });
+
+            // Accordion Items
+            const accEl = document.getElementById('detailedAccordion');
+            accEl.innerHTML = '';
+            dists.forEach((d, idx) => {
+                const item = document.createElement('div');
+                item.className = 'accordion-item';
+                item.id = `acc-${idx}`;
+
+                const sortedBlocks = Object.keys(d.blocks).sort((a,b) => d.blocks[b].total - d.blocks[a].total);
+                let blockListHtml = '<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px;">';
+                sortedBlocks.forEach(b => {
+                    const bD = d.blocks[b];
+                    blockListHtml += `
+                        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 12px;">
+                            <div style="font-weight: 600; font-size: 13px;">${b}</div>
+                            <div style="display: flex; justify-content: space-between; font-size: 11.5px; color: var(--text-muted); margin-top: 2px;">
+                                <span>मतदाता: <strong style="color: #0f172a;">${formatNum(bD.total)}</strong></span>
+                                <span style="color: #059669;">📞 ${bD.with_mobile}</span>
+                            </div>
+                        </div>
+                    `;
+                });
+                blockListHtml += '</div>';
+
+                const sharePct = ((d.total / grandTotal) * 100).toFixed(1);
+                item.innerHTML = `
+                    <div class="accordion-header" onclick="toggleAccordion('acc-${idx}')">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span style="font-size: 18px;">🏛️</span>
+                            <div>
+                                <span style="font-weight: 700; font-size: 15px;">${d.name}</span>
+                                <span style="font-size: 11px; background: #e2e8f0; color: #475569; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">${d.blockCount} प्रखंड</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 14px;">
+                            <span style="font-weight: 800; font-size: 15px;">${formatNum(d.total)}</span>
+                            <span style="font-size: 11px; color: var(--text-muted);">${sharePct}%</span>
+                            <span style="font-size: 12px; color: var(--text-muted);">▼</span>
+                        </div>
+                    </div>
+                    <div class="accordion-body">
+                        ${blockListHtml}
+                    </div>
+                `;
+                accEl.appendChild(item);
+            });
+        }
+
+        function toggleAccordion(id) {
+            const el = document.getElementById(id);
+            if (el) el.classList.toggle('open');
+        }
+
+        function toggleAllAccordions() {
+            allAccordionsOpen = !allAccordionsOpen;
+            document.querySelectorAll('.accordion-item').forEach(el => {
+                if (allAccordionsOpen) el.classList.add('open');
+                else el.classList.remove('open');
+            });
+        }
+
+        // CSV Downloader
+        function downloadCSVReport() {
+            let csv = "क्र. सं.,जिला,प्रखंड,मतदाता संख्या,जिले का हिस्सा %,कुल का %,फोन नंबर उपलब्ध,फोन कवरेज %,शिक्षक/वीआईपी\n";
+            const rows = getBlockRows().sort((a,b) => b.total - a.total);
+            rows.forEach((r, idx) => {
+                csv += `${idx+1},"${r.district}","${r.block}",${r.total},${r.distSharePct.toFixed(1)}%,${r.grandSharePct.toFixed(1)}%,${r.mobile},${r.mobilePct.toFixed(0)}%,${r.teachers}\n`;
+            });
+            const blob = new Blob(["\ufeff" + csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `Kosi_Voter_Block_Report_${new Date().toISOString().slice(0,10)}.csv`;
+            link.click();
+            showToast('CSV फ़ाइल सफलतापूर्वक डाउनलोड हुई!');
+        }
+
+        // Google Sheets Live JSONP Sync
+        function fetchLiveGoogleSheetData() {
+            const spin = document.getElementById('spinIcon');
+            const syncText = document.getElementById('syncText');
+            spin.style.display = 'inline-block';
+            spin.style.animation = 'spin 0.8s linear infinite';
+            syncText.innerText = 'गूगल शीट से सिंक हो रहा है...';
+
+            const script = document.createElement('script');
+            const timestamp = new Date().getTime();
+            script.src = `https://docs.google.com/spreadsheets/d/13QizUlrUVOaKnNidrMzvRekqWXmcm0UyU4d7MIr6P58/gviz/tq?tqx=responseHandler:onSheetUpdate&sheet=Voter%20List&_t=${timestamp}`;
+            script.onerror = function() {
+                spin.style.animation = 'none';
+                syncText.innerText = 'सिंक त्रुटि (कैश्ड डेटा सक्रिय)';
+                showToast('गूगल शीट कनेक्ट नहीं हो सका, पूर्व डेटा सक्रिय है।', '⚠️');
+            };
+            document.body.appendChild(script);
+        }
+
+        window.onSheetUpdate = function(json) {
+            const spin = document.getElementById('spinIcon');
+            const syncText = document.getElementById('syncText');
+            spin.style.animation = 'none';
+
+            if (!json || !json.table || !json.table.rows) {
+                syncText.innerText = 'अमान्य डेटा संरचना';
+                return;
+            }
+
+            const rows = json.table.rows;
+            const updated = {
+                total_voters: rows.length,
+                districts: {},
+                with_mobile: 0,
+                with_designation: 0
+            };
+
+            rows.forEach(r => {
+                const c = r.c;
+                if (!c) return;
+                const dist = (c[1] && c[1].v) ? String(c[1].v).trim() : 'अज्ञात';
+                const block = (c[2] && c[2].v) ? String(c[2].v).trim() : 'रिक्त (Blank)';
+                const mob = (c[7] && c[7].v) ? String(c[7].v).trim() : '';
+                const desig = (c[9] && c[9].v) ? String(c[9].v).trim() : '';
+
+                if (mob) updated.with_mobile++;
+                if (desig) updated.with_designation++;
+
+                if (!updated.districts[dist]) {
+                    updated.districts[dist] = { total: 0, with_mobile: 0, blocks: {} };
+                }
+                updated.districts[dist].total++;
+                if (mob) updated.districts[dist].with_mobile++;
+
+                if (!updated.districts[dist].blocks[block]) {
+                    updated.districts[dist].blocks[block] = { total: 0, with_mobile: 0, teachers: 0 };
+                }
+                updated.districts[dist].blocks[block].total++;
+                if (mob) updated.districts[dist].blocks[block].with_mobile++;
+                if (desig && (desig.includes('शिक्षक') || desig.includes('प्रधानाध्यापक'))) {
+                    updated.districts[dist].blocks[block].teachers++;
+                }
+            });
+
+            appData = updated;
+            initDistrictDropdown();
+            renderSimpleTable();
+            if (document.getElementById('viewDetailed').classList.contains('active')) {
+                renderDetailedView();
+            }
+
+            syncText.innerText = 'लाइव सिंक सफल';
+            const now = new Date();
+            document.getElementById('updateTimeText').innerText = `${now.getHours()}:${String(now.getMinutes()).padStart(2, '0')} पर अपडेटेड`;
+            showToast(`लाइव डेटा सिंक सफल! कुल ${formatNum(rows.length)} रिकॉर्ड अपडेट हुए।`);
+        };
+
+        // Keyframe spin
+        const style = document.createElement("style");
+        style.innerText = `@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`;
+        document.head.appendChild(style);
+
+        // Initialize on load
+        initDistrictDropdown();
+        renderSimpleTable();
+        // Background live check after 800ms
+        setTimeout(fetchLiveGoogleSheetData, 800);
+    </script>
+</body>
+</html>

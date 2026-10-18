@@ -1105,6 +1105,259 @@
             cursor: not-allowed;
             box-shadow: none;
         }
+    
+        /* ================================================= */
+        /* DUPLICATE AUDIT STYLES                           */
+        /* ================================================= */
+        .dup-kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .dup-kpi-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 12px 14px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dup-kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+        .dup-kpi-total::before { background: #3b82f6; }
+        .dup-kpi-unique::before { background: #10b981; }
+        .dup-kpi-dups::before { background: #f59e0b; }
+        .dup-kpi-rate::before { background: #ef4444; }
+        .dup-kpi-clusters::before { background: #8b5cf6; }
+
+        .dup-kpi-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dup-kpi-val {
+            font-size: 20px;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.2;
+        }
+
+        .dup-kpi-sub {
+            font-size: 10.5px;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+
+        .dup-controls-bar {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 10px 14px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .dup-controls-left {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .dup-controls-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dup-badge-unique {
+            background: #d1fae5;
+            color: #065f46;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 999px;
+            display: inline-block;
+        }
+
+        .dup-badge-dup {
+            background: #fee2e2;
+            color: #991b1b;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 999px;
+            display: inline-block;
+        }
+
+        .dup-badge-zero {
+            background: #f1f5f9;
+            color: #64748b;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 7px;
+            border-radius: 999px;
+            display: inline-block;
+        }
+
+        .dup-rate-bar-track {
+            width: 55px;
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 6px;
+        }
+
+        .dup-rate-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+        }
+
+        .btn-inspect-dup {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            color: #1e293b;
+            font-size: 10.5px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            white-space: nowrap;
+        }
+        .btn-inspect-dup:hover {
+            background: #2563eb;
+            color: #ffffff;
+            border-color: #2563eb;
+        }
+
+        /* Duplicate Group Card in Inspector */
+        .dup-group-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            transition: border-color 0.15s;
+        }
+        .dup-group-card:hover {
+            border-color: #cbd5e1;
+        }
+
+        .dup-group-header {
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 12px;
+        }
+
+        .dup-group-key {
+            font-weight: 700;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .dup-group-tag {
+            background: #fee2e2;
+            color: #b91c1c;
+            font-size: 10.5px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 999px;
+        }
+
+        .dup-group-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11.5px;
+        }
+        .dup-group-table th {
+            background: #ffffff;
+            color: #64748b;
+            font-weight: 600;
+            font-size: 10.5px;
+            padding: 6px 10px;
+            text-align: left;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .dup-group-table td {
+            padding: 7px 10px;
+            border-bottom: 1px solid #f8fafc;
+            color: #1e293b;
+        }
+        .dup-group-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* 3-Button Dock Responsive Styling */
+        .bottom-dock {
+            max-width: 440px !important;
+        }
+        @media (max-width: 768px) {
+            .bottom-dock {
+                max-width: 360px !important;
+                padding: 3px !important;
+            }
+            .dock-btn {
+                padding: 5px 8px !important;
+                font-size: 10.5px !important;
+                gap: 3px !important;
+            }
+            .dup-kpi-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            .dup-controls-bar {
+                flex-direction: column !important;
+                align-items: stretch !important;
+            }
+            .dup-controls-left, .dup-controls-right {
+                width: 100% !important;
+                justify-content: space-between !important;
+            }
+            .dup-rate-bar-track {
+                display: none !important;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1289,6 +1542,126 @@
     <!-- ======================================================== -->
     <!-- FLOATING SEGMENTED SWITCHER (CLEAN LIGHT PILL)           -->
     <!-- ======================================================== -->
+    
+    <!-- ============================================================== -->
+    <!-- VIEW 3: DUPLICATE & UNIQUENESS AUDIT CENTER                     -->
+    <!-- ============================================================== -->
+    <div id="viewDuplicates" class="view-panel">
+        <div class="container" style="max-width: 1320px; margin: 0 auto; padding-bottom: 70px;">
+            
+            <!-- Audit Controls Bar -->
+            <div class="dup-controls-bar">
+                <div class="dup-controls-left">
+                    <span style="font-size: 15px;">👥</span>
+                    <strong style="font-size: 13px; color: #0f172a;">डुप्लिकेट एवं विशिष्टता ऑडिट</strong>
+                    <select id="dupDistrictFilter" class="filter-select" onchange="onDupDistChange(this.value)" title="जिला चुनें" style="max-width: 140px;">
+                        <option value="">सभी 14 जिले</option>
+                    </select>
+                    <select id="dupCriteriaSelect" class="filter-select" onchange="onDupCriteriaChange(this.value)" title="डुप्लिकेट आधार" style="max-width: 220px; font-weight: 600;">
+                        <option value="identity" selected>👤 नाम व अभिभावक आधारित</option>
+                        <option value="exact">📋 हूबहू प्रविष्टि (प्रखंड+नाम+अभिभावक)</option>
+                        <option value="block_name">📍 प्रखंड व नाम आधारित</option>
+                        <option value="mobile">📱 फोन नंबर आधारित</option>
+                    </select>
+                    <input type="text" id="dupSearchInput" placeholder="प्रखंड या जिला खोजें..." oninput="onDupSearchInput(this.value)" class="search-input" style="max-width: 150px; font-size: 11.5px; padding: 5px 9px;">
+                </div>
+                <div class="dup-controls-right">
+                    <label style="font-size: 11px; color: #475569; display: flex; align-items: center; gap: 4px; cursor: pointer;">
+                        <input type="checkbox" id="dupOnlyToggle" onchange="toggleDupOnly(this.checked)"> केवल डुप्लिकेट वाले प्रखंड
+                    </label>
+                    <button class="btn-sm" onclick="downloadDuplicateCSV()" title="डुप्लिकेट सूची डाउनलोड करें">
+                        <span>📥</span> <span>डुप्लिकेट CSV</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Top 5 Audit KPI Metric Cards -->
+            <div class="dup-kpi-grid">
+                <div class="dup-kpi-card dup-kpi-total">
+                    <div class="dup-kpi-label"><span>📊</span> कुल रिकॉर्ड्स</div>
+                    <div class="dup-kpi-val" id="dupKpiTotal">-</div>
+                    <div class="dup-kpi-sub" id="dupKpiTotalSub">सत्यापित मतदाता प्रविष्टियाँ</div>
+                </div>
+                <div class="dup-kpi-card dup-kpi-unique">
+                    <div class="dup-kpi-label"><span>✅</span> यूनिक मतदाता</div>
+                    <div class="dup-kpi-val" id="dupKpiUnique" style="color: #059669;">-</div>
+                    <div class="dup-kpi-sub" id="dupKpiUniqueSub">विशिष्ट व एकल रिकॉर्ड्स</div>
+                </div>
+                <div class="dup-kpi-card dup-kpi-dups">
+                    <div class="dup-kpi-label"><span>⚠️</span> डुप्लिकेट प्रविष्टियाँ</div>
+                    <div class="dup-kpi-val" id="dupKpiDups" style="color: #d97706;">-</div>
+                    <div class="dup-kpi-sub" id="dupKpiDupsSub">पुनरावृत्त रिकॉर्ड्स</div>
+                </div>
+                <div class="dup-kpi-card dup-kpi-rate">
+                    <div class="dup-kpi-label"><span>📉</span> डुप्लिकेट दर</div>
+                    <div class="dup-kpi-val" id="dupKpiRate" style="color: #dc2626;">-%</div>
+                    <div class="dup-kpi-sub" id="dupKpiRateSub">कुल डेटा का अनुपात</div>
+                </div>
+                <div class="dup-kpi-card dup-kpi-clusters">
+                    <div class="dup-kpi-label"><span>🔍</span> रिपीटेड कीज (Keys)</div>
+                    <div class="dup-kpi-val" id="dupKpiClusters" style="color: #7c3aed;">-</div>
+                    <div class="dup-kpi-sub" id="dupKpiClustersSub">समान नंबर / पहचान समूह</div>
+                </div>
+            </div>
+
+            <!-- Block-by-Block Audit Table -->
+            <div class="excel-card" style="margin-bottom: 20px;">
+                <div class="excel-header-actions" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: #fafbfc; border-bottom: 1px solid #e2e8f0;">
+                    <div style="font-size: 13px; font-weight: 700; color: #0f172a; display: flex; align-items: center; gap: 6px;">
+                        <span>📋</span> <span>प्रखंड-वार यूनिक vs डुप्लिकेट विस्तृत रिपोर्ट</span>
+                    </div>
+                    <span id="dupTableCountBadge" class="dist-badge">लोड हो रहा है...</span>
+                </div>
+                <div class="excel-table-scroll" style="max-height: 480px; overflow-y: auto;">
+                    <table class="excel-grid-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 32px; text-align: center;">#</th>
+                                <th style="width: 18%;">जिला</th>
+                                <th style="width: 20%;">प्रखंड</th>
+                                <th style="width: 12%; text-align: right;">कुल रिकॉर्ड</th>
+                                <th style="width: 12%; text-align: right;">यूनिक रिकॉर्ड</th>
+                                <th style="width: 11%; text-align: right;">डुप्लिकेट</th>
+                                <th style="width: 15%; text-align: right;">डुप्लिकेट %</th>
+                                <th style="width: 12%; text-align: center;">कार्रवाई</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dupTableBody">
+                            <!-- Populated via renderDuplicateView() -->
+                        </tbody>
+                        <tfoot id="dupTableFoot">
+                            <!-- Grand Total Row -->
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Interactive Duplicate Inspector / Voter Cluster Viewer -->
+            <div class="excel-card" id="dupInspectorCard">
+                <div class="excel-header-actions" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: #fafbfc; border-bottom: 1px solid #e2e8f0; flex-wrap: wrap; gap: 8px;">
+                    <div>
+                        <div style="font-size: 13px; font-weight: 700; color: #0f172a; display: flex; align-items: center; gap: 6px;">
+                            <span>🔍</span> <span>डुप्लिकेट प्रविष्टियों का विवरण (Inspector)</span>
+                        </div>
+                        <div id="dupInspectorFilterTag" style="font-size: 11px; color: #64748b; margin-top: 2px;">
+                            सभी प्रखंडों के डुप्लिकेट दिखाए जा रहे हैं
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <button id="btnClearDupFilter" class="btn-sm" style="display: none;" onclick="clearDuplicateBlockFilter()">
+                            ✕ प्रखंड फ़िल्टर हटाएं
+                        </button>
+                        <span id="dupClustersCountTag" class="dist-badge">0 समूह</span>
+                    </div>
+                </div>
+                <div id="dupClusterList" style="padding: 14px; max-height: 520px; overflow-y: auto; background: #fdfdfd;">
+                    <!-- Populated via renderDuplicateClusters() -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <div class="bottom-dock-container">
         <div class="bottom-dock">
             <button class="dock-btn active-excel" id="dockBtnSimple" onclick="switchView('simple')">
@@ -1298,6 +1671,10 @@
             <button class="dock-btn" id="dockBtnDetailed" onclick="switchView('detailed')">
                 <span>📈</span>
                 <span>विस्तृत रिपोर्ट</span>
+            </button>
+            <button class="dock-btn" id="dockBtnDuplicates" onclick="switchView('duplicates')">
+                <span>👥</span>
+                <span>डुप्लिकेट ऑडिट</span>
             </button>
         </div>
     </div>
@@ -1332,23 +1709,32 @@
         function switchView(viewName) {
             const simpleView = document.getElementById('viewSimple');
             const detView = document.getElementById('viewDetailed');
+            const dupView = document.getElementById('viewDuplicates');
             const btnSimple = document.getElementById('dockBtnSimple');
             const btnDet = document.getElementById('dockBtnDetailed');
+            const btnDup = document.getElementById('dockBtnDuplicates');
+
+            simpleView.classList.remove('active');
+            detView.classList.remove('active');
+            if (dupView) dupView.classList.remove('active');
+
+            btnSimple.className = 'dock-btn';
+            btnDet.className = 'dock-btn';
+            if (btnDup) btnDup.className = 'dock-btn';
 
             if (viewName === 'simple') {
                 simpleView.classList.add('active');
-                detView.classList.remove('active');
                 btnSimple.className = 'dock-btn active-excel';
-                btnDet.className = 'dock-btn';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                simpleView.classList.remove('active');
+            } else if (viewName === 'detailed') {
                 detView.classList.add('active');
-                btnSimple.className = 'dock-btn';
                 btnDet.className = 'dock-btn active';
                 renderDetailedView();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (viewName === 'duplicates') {
+                if (dupView) dupView.classList.add('active');
+                if (btnDup) btnDup.className = 'dock-btn active-excel';
+                renderDuplicateView();
             }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
 
@@ -1361,18 +1747,32 @@
 
         // Populate district filter dropdown
         function initDistrictDropdown() {
-            const sel = document.getElementById('districtFilter');
-            if (!sel) return;
-            const currentVal = sel.value;
-            sel.innerHTML = '<option value="">सभी 14 जिले</option>';
             const dists = Object.keys(appData.districts).sort((a,b) => a.localeCompare(b, 'hi'));
-            dists.forEach(d => {
-                const opt = document.createElement('option');
-                opt.value = d;
-                opt.innerText = `${d} (${appData.districts[d].total})`;
-                sel.appendChild(opt);
-            });
-            sel.value = currentVal;
+            const sel = document.getElementById('districtFilter');
+            if (sel) {
+                const currentVal = sel.value;
+                sel.innerHTML = '<option value="">सभी 14 जिले</option>';
+                dists.forEach(d => {
+                    const opt = document.createElement('option');
+                    opt.value = d;
+                    opt.innerText = `${d} (${formatNum(appData.districts[d].total)})`;
+                    sel.appendChild(opt);
+                });
+                sel.value = currentVal;
+            }
+
+            const dupSel = document.getElementById('dupDistrictFilter');
+            if (dupSel) {
+                const currentDupVal = dupSelectedDist;
+                dupSel.innerHTML = `<option value="">सभी ${dists.length} जिले</option>`;
+                dists.forEach(d => {
+                    const opt = document.createElement('option');
+                    opt.value = d;
+                    opt.innerText = `${d} (${formatNum(appData.districts[d].total)})`;
+                    dupSel.appendChild(opt);
+                });
+                dupSel.value = currentDupVal;
+            }
         }
 
         let sortByDistTotal = false;
@@ -1987,6 +2387,9 @@
             if (document.getElementById('viewDetailed').classList.contains('active')) {
                 renderDetailedView();
             }
+            if (document.getElementById('viewDuplicates') && document.getElementById('viewDuplicates').classList.contains('active')) {
+                renderDuplicateView();
+            }
 
             syncText.innerText = 'लाइव सिंक सफल';
             const now = new Date();
@@ -2005,6 +2408,477 @@
         renderDetailedView();
         // Background live check after 800ms
         setTimeout(fetchLiveGoogleSheetData, 800);
+    
+        /* ================================================= */
+        /* DUPLICATE AUDIT JAVASCRIPT ENGINE                 */
+        /* ================================================= */
+        let dupCriteria = 'identity';
+        let dupSelectedDist = '';
+        let dupSelectedBlock = '';
+        let dupOnlyWithDups = false;
+        let dupSearchTerm = '';
+
+        function onDupCriteriaChange(val) {
+            dupCriteria = val;
+            renderDuplicateView();
+        }
+
+        function onDupDistChange(val) {
+            dupSelectedDist = val;
+            dupSelectedBlock = '';
+            renderDuplicateView();
+        }
+
+        function onDupSearchInput(val) {
+            dupSearchTerm = (val || '').trim().toLowerCase();
+            renderDuplicateView();
+        }
+
+        function toggleDupOnly(checked) {
+            dupOnlyWithDups = checked;
+            renderDuplicateView();
+        }
+
+        function filterDuplicateBlock(dist, block) {
+            dupSelectedDist = dist;
+            dupSelectedBlock = block;
+            renderDuplicateView();
+            const el = document.getElementById('dupInspectorCard');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function clearDuplicateBlockFilter() {
+            dupSelectedDist = '';
+            dupSelectedBlock = '';
+            renderDuplicateView();
+        }
+
+        function computeDuplicateDataset() {
+            const list = (appData.allVoters && appData.allVoters.length > 0) ? appData.allVoters : (allVotersList || []);
+            
+            // Map keys for clustering
+            const groupMap = {};
+            const blockStats = {}; // `${dist}__${block}` -> { dist, block, total, dups: 0, unique: 0, rows: [] }
+
+            list.forEach(v => {
+                const dist = v.dist || 'अज्ञात';
+                const block = v.block || 'रिक्त';
+                const bkKey = `${dist}__${block}`;
+                if (!blockStats[bkKey]) {
+                    blockStats[bkKey] = { dist: dist, block: block, total: 0, dups: 0, unique: 0, rows: [] };
+                }
+                blockStats[bkKey].total++;
+                blockStats[bkKey].rows.push(v);
+
+                let key = '';
+                if (dupCriteria === 'identity') {
+                    const cleanN = (v.name || '').trim().toLowerCase();
+                    const cleanP = (v.parent || '').trim().toLowerCase();
+                    if (cleanN && cleanP && cleanP !== '-') {
+                        key = `id_${dist}__${cleanN}__${cleanP}`;
+                    }
+                } else if (dupCriteria === 'exact') {
+                    const cleanN = (v.name || '').trim().toLowerCase();
+                    const cleanP = (v.parent || '').trim().toLowerCase();
+                    if (cleanN) {
+                        key = `ex_${dist}__${block}__${cleanN}__${cleanP}`;
+                    }
+                } else if (dupCriteria === 'block_name') {
+                    const cleanN = (v.name || '').trim().toLowerCase();
+                    if (cleanN) {
+                        key = `bn_${dist}__${block}__${cleanN}`;
+                    }
+                } else if (dupCriteria === 'mobile') {
+                    const cleanM = (v.mob || '').replace('.0', '').replace(/[^0-9]/g, '');
+                    if (cleanM.length >= 10) {
+                        key = `mob_${cleanM.slice(-10)}`;
+                    }
+                }
+
+                if (key) {
+                    if (!groupMap[key]) groupMap[key] = [];
+                    groupMap[key].push(v);
+                }
+            });
+
+            // Isolate clusters with length > 1
+            const duplicateClusters = [];
+            const dupVoterSet = new Set();
+
+            Object.keys(groupMap).forEach(k => {
+                if (groupMap[k].length > 1) {
+                    duplicateClusters.push({
+                        key: k,
+                        voters: groupMap[k]
+                    });
+                    groupMap[k].forEach(v => {
+                        dupVoterSet.add(v);
+                        const bkKey = `${v.dist || 'अज्ञात'}__${v.block || 'रिक्त'}`;
+                        if (blockStats[bkKey]) {
+                            blockStats[bkKey].dups++;
+                        }
+                    });
+                }
+            });
+
+            // Calculate unique for each block
+            Object.values(blockStats).forEach(bs => {
+                bs.unique = Math.max(0, bs.total - bs.dups);
+            });
+
+            return {
+                totalCount: list.length,
+                totalDuplicates: dupVoterSet.size,
+                totalUnique: Math.max(0, list.length - dupVoterSet.size),
+                duplicateClusters: duplicateClusters,
+                blockStats: blockStats
+            };
+        }
+
+        function renderDuplicateView() {
+            // Populate Duplicate District Filter Dropdown
+            const distSelect = document.getElementById('dupDistrictFilter');
+            if (distSelect && distSelect.options.length <= 1) {
+                const dists = Object.keys(appData.districts).sort((a,b) => a.localeCompare(b, 'hi'));
+                distSelect.innerHTML = `<option value="">सभी ${dists.length} जिले</option>`;
+                dists.forEach(d => {
+                    const opt = document.createElement('option');
+                    opt.value = d;
+                    opt.innerText = `${d} (${formatNum(appData.districts[d].total)})`;
+                    distSelect.appendChild(opt);
+                });
+            }
+            if (distSelect) distSelect.value = dupSelectedDist;
+
+            const res = computeDuplicateDataset();
+            const totalCount = res.totalCount || 1;
+            const dupCount = res.totalDuplicates;
+            const uniqueCount = res.totalUnique;
+            const dupRate = ((dupCount / totalCount) * 100).toFixed(1);
+            const clusterCount = res.duplicateClusters.length;
+
+            // 1. Update KPI Cards
+            document.getElementById('dupKpiTotal').innerText = formatNum(totalCount);
+            document.getElementById('dupKpiUnique').innerText = formatNum(uniqueCount);
+            document.getElementById('dupKpiDups').innerText = formatNum(dupCount);
+            document.getElementById('dupKpiRate').innerText = `${dupRate}%`;
+            document.getElementById('dupKpiClusters').innerText = formatNum(clusterCount);
+
+            document.getElementById('dupKpiTotalSub').innerText = `${Object.keys(appData.districts).length} जिलों का सत्यापित डेटा`;
+            document.getElementById('dupKpiUniqueSub').innerText = `${((uniqueCount/totalCount)*100).toFixed(1)}% विशिष्ट प्रविष्टियाँ`;
+            document.getElementById('dupKpiDupsSub').innerText = dupCount > 0 ? 'पुनरावृत्त रिकॉर्ड्स चिह्नित' : 'कोई डुप्लिकेट नहीं';
+            document.getElementById('dupKpiRateSub').innerText = dupRate > 15 ? '⚠️ उच्च डुप्लिकेट दर' : (dupRate > 5 ? 'मध्यम डुप्लिकेट दर' : '✅ न्यूनतम डुप्लिकेट');
+
+            // 2. Render Block-Wise Audit Table
+            const tbody = document.getElementById('dupTableBody');
+            const tfoot = document.getElementById('dupTableFoot');
+            tbody.innerHTML = '';
+            tfoot.innerHTML = '';
+
+            let distKeys = Object.keys(appData.districts);
+            if (dupSelectedDist) {
+                distKeys = distKeys.filter(d => d === dupSelectedDist);
+            }
+            distKeys.sort((a, b) => a.localeCompare(b, 'hi'));
+
+            let grandTotal = 0;
+            let grandUnique = 0;
+            let grandDups = 0;
+            let grandBlocks = 0;
+            let globalRowIndex = 0;
+
+            distKeys.forEach(distName => {
+                const dData = appData.districts[distName];
+                let allBlocks = Object.keys(dData.blocks);
+
+                // Filter blocks based on search term
+                if (dupSearchTerm) {
+                    const distMatch = distName.toLowerCase().includes(dupSearchTerm);
+                    if (!distMatch) {
+                        allBlocks = allBlocks.filter(b => b.toLowerCase().includes(dupSearchTerm));
+                    }
+                }
+
+                if (allBlocks.length === 0) return;
+
+                // Sort: valid blocks on top, blanks at bottom
+                allBlocks.sort((a, b) => {
+                    const aBlank = isBlankBlock(a);
+                    const bBlank = isBlankBlock(b);
+                    if (aBlank && !bBlank) return 1;
+                    if (!aBlank && bBlank) return -1;
+                    return dData.blocks[b].total - dData.blocks[a].total;
+                });
+
+                let distTotal = 0;
+                let distUnique = 0;
+                let distDups = 0;
+                const validBlockCount = allBlocks.filter(b => !isBlankBlock(b)).length;
+
+                const blockRows = [];
+
+                allBlocks.forEach(bName => {
+                    const isBlank = isBlankBlock(bName);
+                    const bkKey = `${distName}__${bName}`;
+                    const stat = res.blockStats[bkKey] || { total: dData.blocks[bName].total, dups: 0, unique: dData.blocks[bName].total };
+                    
+                    const bTotal = stat.total;
+                    const bDups = stat.dups;
+                    const bUnique = stat.unique;
+                    const bRate = bTotal > 0 ? ((bDups / bTotal) * 100).toFixed(1) : 0;
+
+                    if (dupOnlyWithDups && bDups === 0) return;
+
+                    distTotal += bTotal;
+                    distUnique += bUnique;
+                    distDups += bDups;
+
+                    let rowIdx = '—';
+                    if (!isBlank) {
+                        globalRowIndex++;
+                        rowIdx = globalRowIndex;
+                        grandBlocks++;
+                    }
+
+                    // Progress bar color
+                    const barColor = bRate > 20 ? '#ef4444' : (bRate > 8 ? '#f59e0b' : '#10b981');
+
+                    blockRows.push(`
+                        <tr style="${isBlank ? 'background-color: rgba(241, 245, 249, 0.65);' : ''} ${bDups > 0 ? 'cursor: pointer;' : ''}" ${bDups > 0 ? `onclick="filterDuplicateBlock('${distName}', '${bName}')" title="क्लिक कर इस प्रखंड के डुप्लिकेट देखें"` : ''}>
+                            <td style="text-align: center; color: var(--text-muted); font-size: 11px;">${rowIdx}</td>
+                            <td style="color: var(--text-sub);">${distName}</td>
+                            <td class="${isBlank ? '' : 'cell-bold'}" style="${isBlank ? 'color: #94a3b8; font-style: italic;' : ''}">
+                                ${isBlank ? 'ब्लैंक / अनिर्धारित (Blank)' : bName}
+                            </td>
+                            <td class="cell-num cell-bold">${formatNum(bTotal)}</td>
+                            <td class="cell-num"><span class="dup-badge-unique">${formatNum(bUnique)}</span></td>
+                            <td class="cell-num">
+                                ${bDups > 0 ? `<span class="dup-badge-dup">⚠️ ${formatNum(bDups)}</span>` : '<span class="dup-badge-zero">0</span>'}
+                            </td>
+                            <td class="cell-num" style="white-space: nowrap;">
+                                <div class="dup-rate-bar-track">
+                                    <div class="dup-rate-bar-fill" style="width: ${Math.min(100, bRate)}%; background: ${barColor};"></div>
+                                </div>
+                                <strong style="color: ${barColor};">${bRate}%</strong>
+                            </td>
+                            <td style="text-align: center;">
+                                ${bDups > 0 ? `<button class="btn-inspect-dup" onclick="event.stopPropagation(); filterDuplicateBlock('${distName}', '${bName}')">🔍 देखें</button>` : '<span style="color: #94a3b8; font-size: 10.5px;">—</span>'}
+                            </td>
+                        </tr>
+                    `);
+                });
+
+                if (blockRows.length === 0) return;
+
+                grandTotal += distTotal;
+                grandUnique += distUnique;
+                grandDups += distDups;
+
+                // District Header
+                const distRate = distTotal > 0 ? ((distDups / distTotal) * 100).toFixed(1) : 0;
+                const headerTr = document.createElement('tr');
+                headerTr.className = 'district-header-row';
+                headerTr.innerHTML = `
+                    <td style="text-align: center; font-size: 14px;">🏛️</td>
+                    <td class="cell-bold">${distName}</td>
+                    <td><span class="dist-badge">${validBlockCount} प्रखंड</span></td>
+                    <td class="cell-num dist-total-cell">${formatNum(distTotal)}</td>
+                    <td class="cell-num" style="color: #059669; font-weight: 700;">${formatNum(distUnique)}</td>
+                    <td class="cell-num" style="color: ${distDups > 0 ? '#b91c1c' : '#64748b'}; font-weight: 700;">${distDups > 0 ? '⚠️ ' + formatNum(distDups) : '0'}</td>
+                    <td class="cell-num" style="color: #0f172a; font-weight: 700;">${distRate}%</td>
+                    <td></td>
+                `;
+                tbody.appendChild(headerTr);
+
+                // Append Block Rows
+                blockRows.forEach(rHtml => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = rHtml;
+                    tbody.appendChild(tr);
+                });
+
+                // District Subtotal Row
+                const subtotalTr = document.createElement('tr');
+                subtotalTr.className = 'district-subtotal-row';
+                subtotalTr.innerHTML = `
+                    <td style="text-align: center; color: #94a3b8;">↳</td>
+                    <td colspan="2"><strong>${distName} योग</strong> <span style="font-size: 10px; color: var(--text-muted);">(${validBlockCount} प्रखंड)</span></td>
+                    <td class="cell-num dist-subtotal-val">${formatNum(distTotal)}</td>
+                    <td class="cell-num dist-subtotal-val" style="color: #059669;">${formatNum(distUnique)}</td>
+                    <td class="cell-num dist-subtotal-val" style="color: #b91c1c;">${formatNum(distDups)}</td>
+                    <td class="cell-num dist-subtotal-val">${distRate}%</td>
+                    <td></td>
+                `;
+                tbody.appendChild(subtotalTr);
+            });
+
+            // Footer Grand Total Row
+            const grandRate = grandTotal > 0 ? ((grandDups / grandTotal) * 100).toFixed(1) : 0;
+            tfoot.innerHTML = `
+                <tr class="excel-footer-total">
+                    <td style="text-align: center;">Σ</td>
+                    <td>कुल ${distKeys.length} जिले</td>
+                    <td>${grandBlocks} प्रखंड</td>
+                    <td class="cell-num">${formatNum(grandTotal)}</td>
+                    <td class="cell-num" style="color: #10b981;">${formatNum(grandUnique)}</td>
+                    <td class="cell-num" style="color: #f87171;">${formatNum(grandDups)}</td>
+                    <td class="cell-num">${grandRate}%</td>
+                    <td style="text-align: center; font-size: 11px; color: #94a3b8;">कुल योग</td>
+                </tr>
+            `;
+
+            document.getElementById('dupTableCountBadge').innerText = `${distKeys.length} जिले • ${grandBlocks} प्रखंड`;
+
+            // 3. Render Duplicate Inspector Clusters
+            renderDuplicateClusters(res.duplicateClusters);
+        }
+
+        function renderDuplicateClusters(allClusters) {
+            const listEl = document.getElementById('dupClusterList');
+            const filterTag = document.getElementById('dupInspectorFilterTag');
+            const btnClear = document.getElementById('btnClearDupFilter');
+            const countTag = document.getElementById('dupClustersCountTag');
+            listEl.innerHTML = '';
+
+            let filtered = allClusters;
+
+            // Apply District & Block filter
+            if (dupSelectedDist) {
+                filtered = filtered.filter(cl => cl.voters.some(v => v.dist === dupSelectedDist));
+            }
+            if (dupSelectedBlock) {
+                filtered = filtered.filter(cl => cl.voters.some(v => v.block === dupSelectedBlock));
+            }
+
+            // Apply search term inside duplicate inspector
+            if (dupSearchTerm) {
+                filtered = filtered.filter(cl => {
+                    return cl.voters.some(v => {
+                        const n = (v.name || '').toLowerCase();
+                        const m = (v.mob || '').toLowerCase();
+                        const b = (v.block || '').toLowerCase();
+                        const p = (v.panch || '').toLowerCase();
+                        return n.includes(dupSearchTerm) || m.includes(dupSearchTerm) || b.includes(dupSearchTerm) || p.includes(dupSearchTerm);
+                    });
+                });
+            }
+
+            // Update header tag
+            if (dupSelectedBlock) {
+                filterTag.innerHTML = `चयनित प्रखंड: <strong>${dupSelectedDist} &gt; ${dupSelectedBlock}</strong> (${filtered.length} डुप्लिकेट समूह पाए गए)`;
+                btnClear.style.display = 'inline-flex';
+            } else if (dupSelectedDist) {
+                filterTag.innerHTML = `चयनित जिला: <strong>${dupSelectedDist}</strong> (${filtered.length} डुप्लिकेट समूह)`;
+                btnClear.style.display = 'inline-flex';
+            } else {
+                filterTag.innerText = `सभी 14 जिलों के डुप्लिकेट समूह प्रदर्शित (${filtered.length} समूह)`;
+                btnClear.style.display = 'none';
+            }
+
+            countTag.innerText = `${filtered.length} डुप्लिकेट समूह`;
+
+            if (filtered.length === 0) {
+                listEl.innerHTML = `
+                    <div style="text-align: center; padding: 30px; color: #64748b;">
+                        <span style="font-size: 32px;">🎉</span>
+                        <div style="font-weight: 700; font-size: 14px; margin-top: 8px; color: #0f172a;">इस चयन में कोई डुप्लिकेट प्रविष्टि नहीं पाई गई!</div>
+                        <div style="font-size: 11.5px; color: #94a3b8; margin-top: 4px;">इस प्रखंड/जिले का समस्त डेटा 100% यूनिक व सत्यापित है।</div>
+                    </div>
+                `;
+                return;
+            }
+
+            // Render top 40 clusters for maximum fluidity
+            const sliceClusters = filtered.slice(0, 40);
+
+            sliceClusters.forEach(cl => {
+                const first = cl.voters[0];
+                const card = document.createElement('div');
+                card.className = 'dup-group-card';
+
+                let groupLabel = '';
+                if (dupCriteria === 'identity') {
+                    groupLabel = `👤 समान नाम व अभिभावक: <strong>${first.name}</strong> (पिता/पति: ${first.parent || '-'})`;
+                } else if (dupCriteria === 'exact') {
+                    groupLabel = `📋 हूबहू प्रविष्टि: <strong>${first.name}</strong> (पिता/पति: ${first.parent || '-'}) • [${first.dist} > ${first.block}]`;
+                } else if (dupCriteria === 'block_name') {
+                    groupLabel = `📍 प्रखंड में समान नाम: <strong>${first.name}</strong> • [${first.dist} > ${first.block}]`;
+                } else if (dupCriteria === 'mobile') {
+                    groupLabel = `📱 संपर्क नंबर: <strong>${first.mob || 'अज्ञात'}</strong>`;
+                }
+
+                let rowsHtml = '';
+                cl.voters.forEach((v, vIdx) => {
+                    rowsHtml += `
+                        <tr>
+                            <td style="color: #64748b; font-weight: 600; width: 30px;">#${vIdx + 1}</td>
+                            <td><strong style="color: #0f172a;">${v.name || '-'}</strong></td>
+                            <td style="color: #475569;">${v.parent || '-'}</td>
+                            <td>${v.dist || '-'} &gt; ${v.block || '-'}</td>
+                            <td style="color: #64748b;">${v.panch || '-'} / ${v.vill || '-'}</td>
+                            <td>
+                                ${v.mob ? `<a href="tel:${v.mob}" style="color: #2563eb; font-weight: 700; text-decoration: none;">📞 ${v.mob}</a>` : '<span style="color: #94a3b8;">-</span>'}
+                            </td>
+                        </tr>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <div class="dup-group-header">
+                        <div class="dup-group-key">${groupLabel}</div>
+                        <div style="display: flex; align-items: center; gap: 6px;">
+                            <span class="dup-group-tag">⚠️ ${cl.voters.length} प्रविष्टियाँ</span>
+                            <span style="font-size: 11px; color: #64748b;">${first.dist} &gt; ${first.block}</span>
+                        </div>
+                    </div>
+                    <table class="dup-group-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>मतदाता का नाम</th>
+                                <th>पिता / पति</th>
+                                <th>जिला व प्रखंड</th>
+                                <th>पंचायत / गाँव</th>
+                                <th>संपर्क नंबर</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${rowsHtml}
+                        </tbody>
+                    </table>
+                `;
+                listEl.appendChild(card);
+            });
+
+            if (filtered.length > 40) {
+                const moreNote = document.createElement('div');
+                moreNote.style.cssText = 'text-align: center; padding: 12px; font-size: 11.5px; color: #64748b; font-weight: 600; background: #f1f5f9; border-radius: 8px; margin-top: 10px;';
+                moreNote.innerText = `कुल ${filtered.length} में से शीर्ष 40 डुप्लिकेट समूह प्रदर्शित हैं। पूर्ण डेटा के लिए 'डुप्लिकेट CSV' डाउनलोड करें।`;
+                listEl.appendChild(moreNote);
+            }
+        }
+
+        function downloadDuplicateCSV() {
+            const res = computeDuplicateDataset();
+            let csv = "क्र. सं.,जिला,प्रखंड,पंचायत,गाँव,मतदाता का नाम,पिता/पति का नाम,संपर्क नंबर,डुप्लिकेट समूह आकार,डुप्लिकेट आधार\n";
+            let rowIdx = 0;
+
+            res.duplicateClusters.forEach(cl => {
+                const size = cl.voters.length;
+                cl.voters.forEach(v => {
+                    rowIdx++;
+                    csv += `${rowIdx},"${v.dist || ''}","${v.block || ''}","${v.panch || ''}","${v.vill || ''}","${v.name || ''}","${v.parent || ''}","${v.mob || ''}",${size},"${dupCriteria}"\n`;
+                });
+            });
+
+            const blob = new Blob(["\ufeff" + csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `Kosi_Voter_Duplicate_Audit_Report_${new Date().toISOString().slice(0,10)}.csv`;
+            link.click();
+            showToast('डुप्लिकेट ऑडिट CSV फ़ाइल सफलतापूर्वक डाउनलोड हो गई!', '📥');
+        }
+
     </script>
 </body>
 </html>

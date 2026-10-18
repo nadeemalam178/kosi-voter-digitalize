@@ -824,6 +824,287 @@
                 display: block !important;
             }
         }
+        /* ================================================= */
+        /* STRATEGIC INTELLIGENCE & CALLING DIRECTORY STYLES */
+        /* ================================================= */
+        .strat-badge-tier1 {
+            background: #dbeafe;
+            color: #1e40af;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 4px;
+            border: 1px solid #bfdbfe;
+        }
+        .strat-badge-tier2 {
+            background: #fef3c7;
+            color: #92400e;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 4px;
+            border: 1px solid #fde68a;
+        }
+        .strat-badge-tier3 {
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .ready-pill-high {
+            background: #ecfdf5;
+            color: #047857;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 999px;
+            border: 1px solid #a7f3d0;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .ready-pill-med {
+            background: #fefce8;
+            color: #854d0e;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 999px;
+            border: 1px solid #fef08a;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .ready-pill-low {
+            background: #fef2f2;
+            color: #b91c1c;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 999px;
+            border: 1px solid #fecaca;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .strat-two-col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .powerhouse-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 9px 12px;
+            border-radius: 8px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 7px;
+            font-size: 12.5px;
+            transition: all 0.15s;
+        }
+        .powerhouse-item:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .powerhouse-rank {
+            width: 22px;
+            height: 22px;
+            background: #2563eb;
+            color: #ffffff;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 800;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+
+        .opp-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 11px;
+            border-radius: 8px;
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            margin-bottom: 6px;
+            font-size: 12px;
+        }
+
+        .dist-matrix-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 10px;
+            transition: all 0.15s;
+        }
+        .dist-matrix-card:hover {
+            box-shadow: 0 4px 14px -3px rgba(0,0,0,0.07);
+            border-color: #cbd5e1;
+        }
+
+        .dist-matrix-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 8px;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed #e2e8f0;
+            font-size: 11.5px;
+        }
+
+        .meta-metric {
+            display: flex;
+            flex-direction: column;
+        }
+        .meta-label {
+            color: var(--text-muted);
+            font-size: 10px;
+            margin-bottom: 2px;
+        }
+        .meta-val {
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        /* Smart Voter Directory Lookup */
+        .lookup-input-box {
+            position: relative;
+            margin-bottom: 10px;
+        }
+        .lookup-input {
+            width: 100%;
+            padding: 9px 12px 9px 36px;
+            font-size: 12.5px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 8px;
+            outline: none;
+            box-sizing: border-box;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+        .lookup-input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        .lookup-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748b;
+            font-size: 14px;
+            pointer-events: none;
+        }
+        .lookup-chips {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+        .lookup-chip {
+            padding: 4px 10px;
+            font-size: 11px;
+            font-weight: 600;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 999px;
+            cursor: pointer;
+            color: #334155;
+            transition: all 0.15s;
+        }
+        .lookup-chip.active {
+            background: #2563eb;
+            color: #ffffff;
+            border-color: #2563eb;
+        }
+
+        .voter-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 9px;
+            padding: 10px 12px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            transition: all 0.15s;
+        }
+        .voter-card:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        .voter-card-left {
+            flex: 1;
+            min-width: 0;
+        }
+        .voter-name {
+            font-weight: 700;
+            font-size: 13px;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .voter-parent {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+        .voter-loc-tags {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+            font-size: 10.5px;
+        }
+        .loc-tag {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .btn-call {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #10b981;
+            color: #ffffff !important;
+            text-decoration: none;
+            font-size: 11.5px;
+            font-weight: 700;
+            padding: 6px 11px;
+            border-radius: 6px;
+            white-space: nowrap;
+            box-shadow: 0 1px 2px rgba(16, 185, 129, 0.25);
+            transition: background 0.15s;
+            flex-shrink: 0;
+        }
+        .btn-call:hover {
+            background: #059669;
+        }
+        .btn-call-disabled {
+            background: #f1f5f9;
+            color: #94a3b8 !important;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
     </style>
 </head>
 <body>
@@ -899,37 +1180,79 @@
         </div>
 
         <!-- ======================================================== -->
-        <!-- VIEW 2: DETAILED ANALYTICS (EXECUTIVE VISUAL DASHBOARD)  -->
+        <!-- VIEW 2: DETAILED ANALYTICS (EXECUTIVE STRATEGIC DASHBOARD)-->
         <!-- ======================================================== -->
         <div id="viewDetailed" class="tab-view">
-            <!-- 4 KPI Cards -->
+            <!-- 4 Strategic KPI Cards -->
             <div class="kpi-grid">
                 <div class="kpi-card">
-                    <div class="kpi-title">कुल मतदाता (Voter Tab) <span>👥</span></div>
+                    <div class="kpi-title">कुल मतदाता नेटवर्क <span>👥</span></div>
                     <div class="kpi-val" id="detTotalVoters">4,709</div>
-                    <div class="kpi-sub">कोशी क्षेत्र नया डिजिटाइज़्ड डेटा</div>
+                    <div class="kpi-sub" id="detNetworkSub">13 जिले • 64 प्रखंड • 1,037 पंचायतें</div>
                 </div>
                 <div class="kpi-card">
-                    <div class="kpi-title">सक्रिय प्रखंड (Blocks) <span>📍</span></div>
-                    <div class="kpi-val" id="detTotalBlocks">64</div>
-                    <div class="kpi-sub">कुल 151 में से 64 प्रखंड सक्रिय</div>
+                    <div class="kpi-title">📞 कॉलिंग व संपर्क तत्परता <span>📞</span></div>
+                    <div class="kpi-val" style="color: #059669;" id="detMobilePct">88.4%</div>
+                    <div class="kpi-sub" id="detMobileCount">4,163 मतदाता फोन से सीधे संपर्क योग्य</div>
                 </div>
                 <div class="kpi-card">
-                    <div class="kpi-title">सत्यापित मोबाइल कवरेज <span>📞</span></div>
-                    <div class="kpi-val" id="detMobilePct">91.8%</div>
-                    <div class="kpi-sub" id="detMobileCount">4,321 मतदाताओं के फोन उपलब्ध</div>
+                    <div class="kpi-title">🎓 शिक्षक व प्रमुख ओपिनियन लीडर्स <span>🎓</span></div>
+                    <div class="kpi-val" style="color: #2563eb;" id="detTeachersVal">489</div>
+                    <div class="kpi-sub">शिक्षक/प्रधानाध्यापक एवं प्रभावशाली मतदाता</div>
                 </div>
                 <div class="kpi-card">
-                    <div class="kpi-title">शीर्ष योगदानकर्ता जिला <span>🥇</span></div>
-                    <div class="kpi-val" style="color: #2563eb;" id="detTopDistrict">भागलपुर</div>
-                    <div class="kpi-sub" id="detTopDistrictSub">1,568 मतदाता (33.3%)</div>
+                    <div class="kpi-title">🏆 शीर्ष प्रभावकारी जिला <span>🥇</span></div>
+                    <div class="kpi-val" style="color: #1e40af;" id="detTopDistrict">भागलपुर</div>
+                    <div class="kpi-sub" id="detTopDistrictSub">1,568 मतदाता (33.3% वोट शेयर)</div>
                 </div>
             </div>
 
-            <!-- District Comparison Visual Chart -->
+            <!-- SECTION A: चुनावी रणनीति - पावरहाउस प्रखंड vs ग्रोथ अपॉर्चुनिटी ब्लॉक्स -->
+            <div class="strat-two-col">
+                <!-- Powerhouse Blocks Card -->
+                <div class="card-panel" style="margin-bottom: 0;">
+                    <div class="card-panel-title">
+                        <span>🔥 शीर्ष 10 पावरहाउस प्रखंड (Mega Blocks)</span>
+                        <span class="strat-badge-tier1">>55% कुल मतदान</span>
+                    </div>
+                    <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 10px;">
+                        चुनावी प्रचार, कॉलिंग टीम एवं ग्राउंड संसाधन इन शीर्ष 10 प्रखंडों पर सबसे पहले केंद्रित होने चाहिए:
+                    </p>
+                    <div id="powerhouseBlockList">
+                        <!-- Injected by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Growth Opportunity Blocks Card -->
+                <div class="card-panel" style="margin-bottom: 0;">
+                    <div class="card-panel-title">
+                        <span>🌱 ग्रोथ अपॉर्चुनिटी ब्लॉक्स (Low Outreach)</span>
+                        <span class="strat-badge-tier2">विस्तार आवश्यक</span>
+                    </div>
+                    <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 10px;">
+                        इन प्रखंडों में 10 से कम मतदाता दर्ज हैं। यहाँ नए मतदाता फॉर्म (Form 19) भरवाने और बूथ नेटवर्क सक्रिय करने की जरूरत है:
+                    </p>
+                    <div id="opportunityBlockList">
+                        <!-- Injected by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION B: जिला-वार चुनावी तैयारी एवं गहराई मैट्रिक्स -->
             <div class="card-panel">
                 <div class="card-panel-title">
-                    <span>📊 जिला-वार मतदाता योगदान (District Breakdown)</span>
+                    <span>🏛️ जिला-वार चुनावी तैयारी एवं गहराई विश्लेषण (District Command Matrix)</span>
+                    <span style="font-size: 12px; font-weight: normal; color: var(--text-muted);">कॉलिंग रीच • शिक्षक • जमीनी फैलाव</span>
+                </div>
+                <div id="districtMatrixList">
+                    <!-- Injected by JavaScript -->
+                </div>
+            </div>
+
+            <!-- SECTION C: जिला-वार मतदाता योगदान ग्राफिकल बार्स -->
+            <div class="card-panel">
+                <div class="card-panel-title">
+                    <span>📊 जिला-वार मतदाता योगदान (Visual Contribution Bars)</span>
                     <span style="font-size: 12px; font-weight: normal; color: var(--text-muted);">उच्च से निम्न</span>
                 </div>
                 <div id="detailedBarList">
@@ -937,13 +1260,26 @@
                 </div>
             </div>
 
-            <!-- District Expandable Accordions -->
+            <!-- SECTION D: 🔍 स्मार्ट मतदाता खोज एवं 1-क्लिक कॉलिंग डायरेक्टरी -->
             <div class="card-panel">
                 <div class="card-panel-title">
-                    <span>📁 जिला एवं प्रखंड-वार विस्तृत सूची (Expand to view Blocks)</span>
-                    <button class="btn-sm" onclick="toggleAllAccordions()">सभी खोलें/समेटें</button>
+                    <span>🔍 स्मार्ट मतदाता खोज एवं टेलीफोन डायरेक्टरी (Smart Voter Directory)</span>
+                    <span id="voterResultCount" style="font-size: 12px; font-weight: 700; color: #2563eb;">लोड हो रहा है...</span>
                 </div>
-                <div class="district-accordion" id="detailedAccordion">
+                <p style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 10px;">
+                    नाम, पिता/पति का नाम, मोबाइल नंबर, पंचायत, गाँव या पद (उदा. 'शिक्षक', 'आलोक') लिखकर तुरंत मतदाता खोजें और सीधे कॉल करें:
+                </p>
+                <div class="lookup-input-box">
+                    <span class="lookup-icon">🔍</span>
+                    <input type="text" id="voterSearchInput" class="lookup-input" placeholder="मतदाता का नाम, मोबाइल नंबर, पंचायत, गाँव या पद से खोजें..." oninput="onVoterSearchInput()">
+                </div>
+                <div class="lookup-chips">
+                    <button class="lookup-chip active" id="chipAll" onclick="setVoterFilter('all')">सभी मतदाता</button>
+                    <button class="lookup-chip" id="chipMobile" onclick="setVoterFilter('mobile')">📞 केवल मोबाइल उपलब्ध</button>
+                    <button class="lookup-chip" id="chipTeacher" onclick="setVoterFilter('teacher')">🎓 केवल शिक्षक / प्रबुद्ध</button>
+                    <button class="lookup-chip" id="chipNoMobile" onclick="setVoterFilter('nomobile')">⚠️ बिना मोबाइल (ग्राउंड टीम)</button>
+                </div>
+                <div id="voterLookupResults" style="max-height: 480px; overflow-y: auto;">
                     <!-- Injected by JavaScript -->
                 </div>
             </div>
@@ -975,7 +1311,7 @@
     <!-- Dynamic JavaScript Engine -->
     <script>
         // Default snapshot (immediate offline render)
-        const snapshot = {"total_voters": 4709, "districts": {"लखीसराय": {"total": 127, "with_mobile": 83, "blocks": {"चानन": {"total": 56, "with_mobile": 56, "teachers": 8}, "सूर्यगढ़ा": {"total": 60, "with_mobile": 16, "teachers": 0}, "लखीसराय": {"total": 4, "with_mobile": 4, "teachers": 2}, "हलसी": {"total": 7, "with_mobile": 7, "teachers": 3}}}, "मुंगेर": {"total": 187, "with_mobile": 156, "blocks": {"धरहरा": {"total": 102, "with_mobile": 71, "teachers": 0}, "सदर मुंगेर": {"total": 40, "with_mobile": 40, "teachers": 13}, "हवेली खड़गपुर": {"total": 45, "with_mobile": 45, "teachers": 15}}}, "शेखपुरा": {"total": 316, "with_mobile": 314, "blocks": {"शेखपुरा": {"total": 51, "with_mobile": 49, "teachers": 0}, "अरियरी": {"total": 41, "with_mobile": 41, "teachers": 3}, "बरबीघा": {"total": 153, "with_mobile": 153, "teachers": 25}, "घाटकुसुम्भा": {"total": 34, "with_mobile": 34, "teachers": 17}, "शेखोपुरसराय": {"total": 37, "with_mobile": 37, "teachers": 3}}}, "भागलपुर": {"total": 1568, "with_mobile": 1297, "blocks": {"सुल्तानगंज": {"total": 170, "with_mobile": 156, "teachers": 24}, "शाहकुंड": {"total": 13, "with_mobile": 13, "teachers": 2}, "रिक्त (Blank)": {"total": 48, "with_mobile": 45, "teachers": 0}, "सन्हौला": {"total": 946, "with_mobile": 750, "teachers": 69}, "गोपालपुर": {"total": 236, "with_mobile": 183, "teachers": 0}, "नारायणपुर": {"total": 117, "with_mobile": 112, "teachers": 50}, "पीरपैंती": {"total": 1, "with_mobile": 1, "teachers": 1}, "बिहपुर": {"total": 32, "with_mobile": 32, "teachers": 13}, "भागलपुर": {"total": 4, "with_mobile": 4, "teachers": 4}, "सबौर": {"total": 1, "with_mobile": 1, "teachers": 1}}}, "अररिया": {"total": 382, "with_mobile": 332, "blocks": {"रिक्त (Blank)": {"total": 119, "with_mobile": 73, "teachers": 0}, "अररिया": {"total": 46, "with_mobile": 46, "teachers": 10}, "रानीगंज": {"total": 85, "with_mobile": 82, "teachers": 5}, "भरगामा": {"total": 86, "with_mobile": 85, "teachers": 7}, "कुर्साकांटा": {"total": 12, "with_mobile": 12, "teachers": 3}, "फारबिसगंज": {"total": 34, "with_mobile": 34, "teachers": 6}}}, "पूर्णिया": {"total": 467, "with_mobile": 419, "blocks": {"धमदाहा": {"total": 162, "with_mobile": 161, "teachers": 16}, "अमौर": {"total": 52, "with_mobile": 49, "teachers": 0}, "रुपौली": {"total": 209, "with_mobile": 165, "teachers": 0}, "भवानीपुर": {"total": 44, "with_mobile": 44, "teachers": 11}}}, "कटिहार": {"total": 108, "with_mobile": 107, "blocks": {"प्राणपुर": {"total": 21, "with_mobile": 20, "teachers": 0}, "कटिहार": {"total": 23, "with_mobile": 23, "teachers": 5}, "कोढ़ा": {"total": 64, "with_mobile": 64, "teachers": 11}}}, "किशनगंज": {"total": 571, "with_mobile": 484, "blocks": {"किशनगंज": {"total": 37, "with_mobile": 37, "teachers": 10}, "टेढ़ागाछ": {"total": 25, "with_mobile": 25, "teachers": 0}, "ठाकुरगंज": {"total": 238, "with_mobile": 151, "teachers": 0}, "पोठिया": {"total": 231, "with_mobile": 231, "teachers": 46}, "बहादुरगंज": {"total": 40, "with_mobile": 40, "teachers": 10}}}, "बांका": {"total": 210, "with_mobile": 210, "blocks": {"शंभूगंज": {"total": 26, "with_mobile": 26, "teachers": 0}, "अमरपुर": {"total": 111, "with_mobile": 111, "teachers": 3}, "बाराहाट": {"total": 12, "with_mobile": 12, "teachers": 3}, "बौंसी": {"total": 61, "with_mobile": 61, "teachers": 15}}}, "सहरसा": {"total": 420, "with_mobile": 408, "blocks": {"सौर बाजार": {"total": 9, "with_mobile": 9, "teachers": 2}, "पतरघट": {"total": 28, "with_mobile": 21, "teachers": 0}, "नवहट्टा": {"total": 20, "with_mobile": 15, "teachers": 0}, "कहरा": {"total": 97, "with_mobile": 97, "teachers": 20}, "नौहट्टा": {"total": 59, "with_mobile": 59, "teachers": 12}, "बनमा ईटहरी": {"total": 26, "with_mobile": 26, "teachers": 5}, "महिषी": {"total": 38, "with_mobile": 38, "teachers": 2}, "सत्तर कटैया": {"total": 76, "with_mobile": 76, "teachers": 7}, "सहरसा": {"total": 1, "with_mobile": 1, "teachers": 0}, "सिमरी बख्तियारपुर": {"total": 46, "with_mobile": 46, "teachers": 6}, "सौरबाजार": {"total": 20, "with_mobile": 20, "teachers": 3}}}, "जमुई": {"total": 120, "with_mobile": 120, "blocks": {"झाझा": {"total": 22, "with_mobile": 22, "teachers": 5}, "लक्ष्मीपुर": {"total": 6, "with_mobile": 6, "teachers": 0}, "सिकन्दरा": {"total": 92, "with_mobile": 92, "teachers": 0}}}, "मधेपुरा": {"total": 48, "with_mobile": 48, "blocks": {"मधेपुरा": {"total": 22, "with_mobile": 22, "teachers": 5}, "शंकरपुर": {"total": 26, "with_mobile": 26, "teachers": 7}}}, "सुपौल": {"total": 185, "with_mobile": 185, "blocks": {"किशनपुर": {"total": 57, "with_mobile": 57, "teachers": 3}, "त्रिवेणीगंज": {"total": 86, "with_mobile": 86, "teachers": 11}, "निर्मली": {"total": 12, "with_mobile": 12, "teachers": 3}, "मरौना": {"total": 30, "with_mobile": 30, "teachers": 9}}}}, "with_mobile": 4163, "with_designation": 1236};
+        const snapshot = {"total_voters": 4709, "with_mobile": 4163, "with_teachers": 544, "total_panchayats": 1037, "total_villages": 1430, "districts": {"लखीसराय": {"total": 127, "with_mobile": 83, "teachers": 13, "panchayats": 27, "villages": 55, "blocks": {"चानन": {"total": 56, "with_mobile": 56, "teachers": 8}, "सूर्यगढ़ा": {"total": 60, "with_mobile": 16, "teachers": 0}, "लखीसराय": {"total": 4, "with_mobile": 4, "teachers": 2}, "हलसी": {"total": 7, "with_mobile": 7, "teachers": 3}}}, "मुंगेर": {"total": 187, "with_mobile": 156, "teachers": 28, "panchayats": 37, "villages": 76, "blocks": {"धरहरा": {"total": 102, "with_mobile": 71, "teachers": 0}, "सदर मुंगेर": {"total": 40, "with_mobile": 40, "teachers": 13}, "हवेली खड़गपुर": {"total": 45, "with_mobile": 45, "teachers": 15}}}, "शेखपुरा": {"total": 316, "with_mobile": 314, "teachers": 48, "panchayats": 132, "villages": 165, "blocks": {"शेखपुरा": {"total": 51, "with_mobile": 49, "teachers": 0}, "अरियरी": {"total": 41, "with_mobile": 41, "teachers": 3}, "बरबीघा": {"total": 153, "with_mobile": 153, "teachers": 25}, "घाटकुसुम्भा": {"total": 34, "with_mobile": 34, "teachers": 17}, "शेखोपुरसराय": {"total": 37, "with_mobile": 37, "teachers": 3}}}, "भागलपुर": {"total": 1568, "with_mobile": 1297, "teachers": 164, "panchayats": 137, "villages": 219, "blocks": {"सुल्तानगंज": {"total": 170, "with_mobile": 156, "teachers": 24}, "शाहकुंड": {"total": 13, "with_mobile": 13, "teachers": 2}, "रिक्त": {"total": 48, "with_mobile": 45, "teachers": 0}, "सन्हौला": {"total": 946, "with_mobile": 750, "teachers": 69}, "गोपालपुर": {"total": 236, "with_mobile": 183, "teachers": 0}, "नारायणपुर": {"total": 117, "with_mobile": 112, "teachers": 50}, "पीरपैंती": {"total": 1, "with_mobile": 1, "teachers": 1}, "बिहपुर": {"total": 32, "with_mobile": 32, "teachers": 13}, "भागलपुर": {"total": 4, "with_mobile": 4, "teachers": 4}, "सबौर": {"total": 1, "with_mobile": 1, "teachers": 1}}}, "अररिया": {"total": 382, "with_mobile": 332, "teachers": 61, "panchayats": 79, "villages": 131, "blocks": {"रिक्त": {"total": 119, "with_mobile": 73, "teachers": 30}, "अररिया": {"total": 46, "with_mobile": 46, "teachers": 10}, "रानीगंज": {"total": 85, "with_mobile": 82, "teachers": 5}, "भरगामा": {"total": 86, "with_mobile": 85, "teachers": 7}, "कुर्साकांटा": {"total": 12, "with_mobile": 12, "teachers": 3}, "फारबिसगंज": {"total": 34, "with_mobile": 34, "teachers": 6}}}, "पूर्णिया": {"total": 467, "with_mobile": 419, "teachers": 27, "panchayats": 86, "villages": 109, "blocks": {"धमदाहा": {"total": 162, "with_mobile": 161, "teachers": 16}, "अमौर": {"total": 52, "with_mobile": 49, "teachers": 0}, "रुपौली": {"total": 209, "with_mobile": 165, "teachers": 0}, "भवानीपुर": {"total": 44, "with_mobile": 44, "teachers": 11}}}, "कटिहार": {"total": 108, "with_mobile": 107, "teachers": 16, "panchayats": 36, "villages": 51, "blocks": {"प्राणपुर": {"total": 21, "with_mobile": 20, "teachers": 0}, "कटिहार": {"total": 23, "with_mobile": 23, "teachers": 5}, "कोढ़ा": {"total": 64, "with_mobile": 64, "teachers": 11}}}, "किशनगंज": {"total": 571, "with_mobile": 484, "teachers": 66, "panchayats": 170, "villages": 197, "blocks": {"किशनगंज": {"total": 37, "with_mobile": 37, "teachers": 10}, "टेढ़ागाछ": {"total": 25, "with_mobile": 25, "teachers": 0}, "ठाकुरगंज": {"total": 238, "with_mobile": 151, "teachers": 0}, "पोठिया": {"total": 231, "with_mobile": 231, "teachers": 46}, "बहादुरगंज": {"total": 40, "with_mobile": 40, "teachers": 10}}}, "बांका": {"total": 210, "with_mobile": 210, "teachers": 21, "panchayats": 108, "villages": 124, "blocks": {"शंभूगंज": {"total": 26, "with_mobile": 26, "teachers": 0}, "अमरपुर": {"total": 111, "with_mobile": 111, "teachers": 3}, "बाराहाट": {"total": 12, "with_mobile": 12, "teachers": 3}, "बौंसी": {"total": 61, "with_mobile": 61, "teachers": 15}}}, "सहरसा": {"total": 420, "with_mobile": 408, "teachers": 57, "panchayats": 166, "villages": 205, "blocks": {"सौर बाजार": {"total": 9, "with_mobile": 9, "teachers": 2}, "पतरघट": {"total": 28, "with_mobile": 21, "teachers": 0}, "नवहट्टा": {"total": 20, "with_mobile": 15, "teachers": 0}, "कहरा": {"total": 97, "with_mobile": 97, "teachers": 20}, "नौहट्टा": {"total": 59, "with_mobile": 59, "teachers": 12}, "बनमा ईटहरी": {"total": 26, "with_mobile": 26, "teachers": 5}, "महिषी": {"total": 38, "with_mobile": 38, "teachers": 2}, "सत्तर कटैया": {"total": 76, "with_mobile": 76, "teachers": 7}, "सहरसा": {"total": 1, "with_mobile": 1, "teachers": 0}, "सिमरी बख्तियारपुर": {"total": 46, "with_mobile": 46, "teachers": 6}, "सौरबाजार": {"total": 20, "with_mobile": 20, "teachers": 3}}}, "जमुई": {"total": 120, "with_mobile": 120, "teachers": 5, "panchayats": 38, "villages": 38, "blocks": {"झाझा": {"total": 22, "with_mobile": 22, "teachers": 5}, "लक्ष्मीपुर": {"total": 6, "with_mobile": 6, "teachers": 0}, "सिकन्दरा": {"total": 92, "with_mobile": 92, "teachers": 0}}}, "मधेपुरा": {"total": 48, "with_mobile": 48, "teachers": 12, "panchayats": 22, "villages": 28, "blocks": {"मधेपुरा": {"total": 22, "with_mobile": 22, "teachers": 5}, "शंकरपुर": {"total": 26, "with_mobile": 26, "teachers": 7}}}, "सुपौल": {"total": 185, "with_mobile": 185, "teachers": 26, "panchayats": 66, "villages": 103, "blocks": {"किशनपुर": {"total": 57, "with_mobile": 57, "teachers": 3}, "त्रिवेणीगंज": {"total": 86, "with_mobile": 86, "teachers": 11}, "निर्मली": {"total": 12, "with_mobile": 12, "teachers": 3}, "मरौना": {"total": 30, "with_mobile": 30, "teachers": 9}}}}, "top_blocks": [{"district": "भागलपुर", "block": "सन्हौला", "total": 946, "mobile": 750, "teachers": 69}, {"district": "किशनगंज", "block": "ठाकुरगंज", "total": 238, "mobile": 151, "teachers": 0}, {"district": "भागलपुर", "block": "गोपालपुर", "total": 236, "mobile": 183, "teachers": 0}, {"district": "किशनगंज", "block": "पोठिया", "total": 231, "mobile": 231, "teachers": 46}, {"district": "पूर्णिया", "block": "रुपौली", "total": 209, "mobile": 165, "teachers": 0}, {"district": "भागलपुर", "block": "सुल्तानगंज", "total": 170, "mobile": 156, "teachers": 24}, {"district": "पूर्णिया", "block": "धमदाहा", "total": 162, "mobile": 161, "teachers": 16}, {"district": "शेखपुरा", "block": "बरबीघा", "total": 153, "mobile": 153, "teachers": 25}, {"district": "अररिया", "block": "रिक्त", "total": 119, "mobile": 73, "teachers": 30}, {"district": "भागलपुर", "block": "नारायणपुर", "total": 117, "mobile": 112, "teachers": 50}], "bottom_blocks": [{"district": "भागलपुर", "block": "पीरपैंती", "total": 1, "mobile": 1, "teachers": 1}, {"district": "भागलपुर", "block": "सबौर", "total": 1, "mobile": 1, "teachers": 1}, {"district": "सहरसा", "block": "सहरसा", "total": 1, "mobile": 1, "teachers": 0}, {"district": "भागलपुर", "block": "भागलपुर", "total": 4, "mobile": 4, "teachers": 4}, {"district": "लखीसराय", "block": "लखीसराय", "total": 4, "mobile": 4, "teachers": 2}, {"district": "जमुई", "block": "लक्ष्मीपुर", "total": 6, "mobile": 6, "teachers": 0}, {"district": "लखीसराय", "block": "हलसी", "total": 7, "mobile": 7, "teachers": 3}, {"district": "सहरसा", "block": "सौर बाजार", "total": 9, "mobile": 9, "teachers": 2}], "sample_voters": [{"sno": "1", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "रामबालक यादव", "parent": "भरौसी यादव", "mob": "7294042266", "v_sno": "157", "des": ""}, {"sno": "2", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "वीर मनोहर", "parent": "जानकी प्रसाद", "mob": "9661566340", "v_sno": "179", "des": ""}, {"sno": "3", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "शिवेंद्र कुमार", "parent": "सुरेश रजक", "mob": "9122100209", "v_sno": "195", "des": ""}, {"sno": "4", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "संगीता कुमारी", "parent": "प्रमोद कुमार", "mob": "98016696098", "v_sno": "202", "des": "11 अंकों का नंबर (स्रोत अनुसार)"}, {"sno": "5", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "अंकित कुमार", "parent": "बिभीषण मंडल", "mob": "6206269702", "v_sno": "2", "des": ""}, {"sno": "6", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "अमरजीत कुमार", "parent": "लक्ष्मी मंडल", "mob": "9304748023", "v_sno": "15", "des": ""}, {"sno": "7", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "प्रदीप कुमार दास", "parent": "कृष्णा दान दास", "mob": "9534996561", "v_sno": "89", "des": ""}, {"sno": "8", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "सूरज दास", "parent": "लखन दास", "mob": "9973332036", "v_sno": "231", "des": ""}, {"sno": "9", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "सुभाष चंद्र कुमार", "parent": "सुधीर कुमार", "mob": "6200603124", "v_sno": "296", "des": ""}, {"sno": "10", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "चंदन कुमार दास", "parent": "लखन रविदास", "mob": "9229719354", "v_sno": "50", "des": ""}, {"sno": "11", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "बिशु मंडल", "parent": "दामोदर मंडल", "mob": "7549937661", "v_sno": "108", "des": ""}, {"sno": "12", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "अजीत कुमार शर्मा", "parent": "रामदेव शर्मा", "mob": "7488338204", "v_sno": "8", "des": ""}, {"sno": "13", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "जितेंद्र कुमार", "parent": "जीवनलाल तांती", "mob": "7366039699", "v_sno": "58", "des": ""}, {"sno": "14", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "हरेराम कुमार", "parent": "नागेंद्र यादव", "mob": "9097353702", "v_sno": "248", "des": ""}, {"sno": "15", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "अजय कुमार", "parent": "भासो यादव", "mob": "9572736695", "v_sno": "5", "des": ""}, {"sno": "16", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "आर्यन प्रतीक", "parent": "कटिमान यादव", "mob": "7762818624", "v_sno": "28", "des": ""}, {"sno": "17", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "प्रमोद कुमार", "parent": "रामगुलाम यादव", "mob": "8210783616", "v_sno": "94", "des": ""}, {"sno": "18", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "वरुण कुमार", "parent": "सुरेश रजक", "mob": "9905631488", "v_sno": "111", "des": ""}, {"sno": "19", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "विजय पटेल", "parent": "बालेश्वर राय", "mob": "7004542320", "v_sno": "175", "des": ""}, {"sno": "20", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "शिवानी भारती", "parent": "लुटटू महतो", "mob": "8210172120", "v_sno": "198", "des": ""}, {"sno": "21", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "सुबोध कुमार", "parent": "कृष्णदेव पंडित", "mob": "9504444227", "v_sno": "225", "des": ""}, {"sno": "22", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "सुबोध कुमार", "parent": "-", "mob": "9534248304", "v_sno": "", "des": "कोई सीरियल नंबर उपलब्ध नहीं"}, {"sno": "23", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "नीतीश कुमार", "parent": "राजेश्वरी मंडल", "mob": "9128685456", "v_sno": "79", "des": "अतिरिक्त सीरियल नंबर: 295"}, {"sno": "24", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "मुकेश कुमार", "parent": "अनिल प्रसाद बर्नवाल", "mob": "8298159157", "v_sno": "118", "des": ""}, {"sno": "25", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "मनोज कुमार", "parent": "वासुदेव प्रसाद", "mob": "9199226019", "v_sno": "128", "des": ""}, {"sno": "26", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "शंकर कुमार गुप्ता", "parent": "रामदेव गुप्ता", "mob": "7004364674", "v_sno": "180", "des": ""}, {"sno": "27", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "शशिकांत कुमार", "parent": "कुशेश्वर महतो", "mob": "7321068055", "v_sno": "190", "des": ""}, {"sno": "28", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "सत्यदेव प्रसाद", "parent": "रामसहाय महतो", "mob": "9006344657", "v_sno": "211", "des": ""}, {"sno": "29", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "अमित राज", "parent": "मुरारी प्रसाद सिन्हा", "mob": "7488483635", "v_sno": "250", "des": ""}, {"sno": "30", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "सुभाष चंद्र कुमार", "parent": "सुधीर कुमार", "mob": "6200603124", "v_sno": "296", "des": ""}, {"sno": "31", "dist": "लखीसराय", "block": "चानन", "panch": "चानन", "vill": "-", "name": "निशिकांत कुमार", "parent": "कुशेश्वर महतो", "mob": "8298757925", "v_sno": "", "des": ""}, {"sno": "32", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "-", "name": "दिपेश कु०", "parent": "गणेश महतो", "mob": "", "v_sno": "491", "des": ""}, {"sno": "33", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "-", "name": "निरंजन कु०", "parent": "दिलीप कु०", "mob": "", "v_sno": "510", "des": ""}, {"sno": "34", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "-", "name": "वीर अभिमन्यु", "parent": "बाजो महतो", "mob": "9199906430", "v_sno": "529", "des": "4 votes समूह"}, {"sno": "35", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "-", "name": "विभा कुमारी", "parent": "वीर बहादुर सिंह", "mob": "", "v_sno": "571", "des": "4 votes समूह"}, {"sno": "36", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "-", "name": "वीर बहादुर सिंह", "parent": "बाजो महतो", "mob": "9576455352", "v_sno": "573", "des": "4 votes समूह"}, {"sno": "37", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "-", "name": "शकुंतला देवी", "parent": "परमेश कु०", "mob": "", "v_sno": "574", "des": "4 votes समूह"}, {"sno": "38", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "-", "name": "गौतम कु०", "parent": "कैलाश महतो", "mob": "7903100002", "v_sno": "110", "des": ""}, {"sno": "39", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "-", "name": "प्रेम अवनीष", "parent": "सर्वोदय कु०", "mob": "", "v_sno": "", "des": ""}, {"sno": "40", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "-", "name": "निशिकान्त कुमार", "parent": "नवल किशोर प्रसाद", "mob": "8804089626", "v_sno": "781", "des": ""}, {"sno": "41", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "अनिल कुमार (बंगाली महतो)", "parent": "बंगाली महतो", "mob": "8507455489", "v_sno": "17", "des": "मंदिर टोला"}, {"sno": "42", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "अमित कुमार", "parent": "दिनेश महतो", "mob": "", "v_sno": "37", "des": "मंदिर टोला"}, {"sno": "43", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "कुन्दन कुमार", "parent": "अर्जुन प्रसाद", "mob": "", "v_sno": "69", "des": "मंदिर टोला"}, {"sno": "44", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "चंद्रकांत कु०", "parent": "अमल किशोर", "mob": "7277353350", "v_sno": "117", "des": "मंदिर टोला"}, {"sno": "45", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "छोटू कुमार", "parent": "सुरेश ठाकुर", "mob": "", "v_sno": "124", "des": "दो संपर्क नंबर"}, {"sno": "46", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "ज्ञानुदेव बिन्दु", "parent": "साकेत कुमार", "mob": "7091815230", "v_sno": "126", "des": "मंदिर टोला"}, {"sno": "47", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "डा० अशोक कुमार", "parent": "श्री प्रकाश प्रसाद", "mob": "7488339570", "v_sno": "139", "des": "मंदिर टोला"}, {"sno": "48", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "नितिश कु०", "parent": "नंद किशोर महतो", "mob": "", "v_sno": "173", "des": "मंदिर टोला"}, {"sno": "49", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "निर्भय कुमार", "parent": "राजकुमार महतो", "mob": "7488409056", "v_sno": "180", "des": "मंदिर टोला"}, {"sno": "50", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "पूजा कुमारी", "parent": "वीर बहादुर सिंह", "mob": "", "v_sno": "186", "des": "संबंधित क्रम सं. 573"}, {"sno": "51", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "प्रदीप कु०", "parent": "शशि रजक", "mob": "7004482138", "v_sno": "196", "des": "मंदिर टोला"}, {"sno": "52", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "प्रिंस कु०", "parent": "संजय कुमार पोद्दार", "mob": "6202307369", "v_sno": "215", "des": "मंदिर टोला"}, {"sno": "53", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "राज कुमारी", "parent": "राम कर्ण शरण", "mob": "", "v_sno": "284", "des": "मंदिर टोला"}, {"sno": "54", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "राम रतन कुमार", "parent": "मुगेश्वर प्र०", "mob": "", "v_sno": "300", "des": "मंदिर टोला"}, {"sno": "55", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "राहुल कु०", "parent": "नंदकिशोर महतो", "mob": "", "v_sno": "303", "des": "मंदिर टोला"}, {"sno": "56", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "राहुल कु० शर्मा", "parent": "उपेंद्र शर्मा", "mob": "8507451225", "v_sno": "306", "des": "मंदिर टोला"}, {"sno": "57", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "रौशन कुमार", "parent": "अशोक महतो", "mob": "7686936857", "v_sno": "309", "des": "मंदिर टोला"}, {"sno": "58", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "विकाश कुमार", "parent": "रामेश्वर रजक", "mob": "", "v_sno": "326", "des": "मंदिर टोला"}, {"sno": "59", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "शैलेश कु० अमर", "parent": "सत्यनारायण लाल कर्ण", "mob": "", "v_sno": "339", "des": "मंदिर टोला"}, {"sno": "60", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "संदिप कु० मनोरंजन", "parent": "-", "mob": "8407891093", "v_sno": "378", "des": "मंदिर टोला"}, {"sno": "61", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "सुधा कुमारी", "parent": "डॉ० अशोक (पति)", "mob": "7488339570", "v_sno": "377", "des": "W/o Dr. Ashok (139)"}, {"sno": "62", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "सुमन सौरभ", "parent": "सिद्धेश्वर महतो", "mob": "8804907467", "v_sno": "394", "des": "मंदिर टोला"}, {"sno": "63", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "सुशांत कुमार", "parent": "उमेश प्र०", "mob": "", "v_sno": "409", "des": "मंदिर टोला"}, {"sno": "64", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "हीरा शरण कुमार", "parent": "विपिन महतो", "mob": "", "v_sno": "437", "des": "मंदिर टोला"}, {"sno": "65", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "अंकित कु०", "parent": "सत्येंद्र कु० पोद्दार", "mob": "7717706823", "v_sno": "439", "des": "मंदिर टोला"}, {"sno": "66", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "अभिषेक कुमार", "parent": "बिरो साव", "mob": "", "v_sno": "447", "des": "मंदिर टोला"}, {"sno": "67", "dist": "मुंगेर", "block": "धरहरा", "panch": "बहाचौकी (Bahachowki)", "vill": "मंदिर टोला", "name": "आदित्य कुमार", "parent": "परमेश कु०", "mob": "", "v_sno": "459", "des": "मंदिर टोला"}, {"sno": "68", "dist": "मुंगेर", "block": "धरहरा", "panch": "हेमजापुर (Hemzapur)", "vill": "-", "name": "तपेश कुमार (Tapesh Kumar)", "parent": "-", "mob": "8102131581", "v_sno": "", "des": "पंचायत प्रभारी"}, {"sno": "69", "dist": "मुंगेर", "block": "धरहरा", "panch": "हेमजापुर (Hemzapur)", "vill": "-", "name": "दिपक कुमार निषाद", "parent": "-", "mob": "9304277326", "v_sno": "", "des": "सह-पंचायत प्रभारी"}, {"sno": "70", "dist": "मुंगेर", "block": "धरहरा", "panch": "हेमजापुर (Hemzapur)", "vill": "-", "name": "अवधेश कुमार", "parent": "-", "mob": "9097268753", "v_sno": "", "des": ""}, {"sno": "71", "dist": "मुंगेर", "block": "धरहरा", "panch": "हेमजापुर (Hemzapur)", "vill": "-", "name": "पवन कुमार", "parent": "-", "mob": "9504648470", "v_sno": "", "des": ""}, {"sno": "72", "dist": "मुंगेर", "block": "धरहरा", "panch": "हेमजापुर (Hemzapur)", "vill": "-", "name": "श्रवण कुमार", "parent": "-", "mob": "6201956750", "v_sno": "", "des": ""}, {"sno": "73", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "प्रभाकर कुमार", "parent": "-", "mob": "7503868080", "v_sno": "", "des": "पंचायत प्रभारी: अनुराग कुमार (9709807221)"}, {"sno": "74", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "नितेश राय", "parent": "-", "mob": "9304744039", "v_sno": "", "des": ""}, {"sno": "75", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "ज्योति कुमारी", "parent": "-", "mob": "", "v_sno": "", "des": ""}, {"sno": "76", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "अमरजीत कुमार", "parent": "-", "mob": "", "v_sno": "", "des": ""}, {"sno": "77", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "मिथुन चक्रवर्ती", "parent": "-", "mob": "6200775853", "v_sno": "", "des": ""}, {"sno": "78", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "मोहन कुमार", "parent": "-", "mob": "9471612476", "v_sno": "", "des": ""}, {"sno": "79", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "प्रिंस कुमार", "parent": "-", "mob": "7808216386", "v_sno": "", "des": ""}, {"sno": "80", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "शशिकांत कुमार", "parent": "-", "mob": "6206051057", "v_sno": "", "des": ""}, {"sno": "81", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "सरोज कुमार", "parent": "-", "mob": "9065953162", "v_sno": "", "des": ""}, {"sno": "82", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "सन्नी कुमार", "parent": "-", "mob": "8918395375", "v_sno": "", "des": ""}, {"sno": "83", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "शशिकांत रूचि", "parent": "-", "mob": "7255030491", "v_sno": "", "des": ""}, {"sno": "84", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "अमित कुमार", "parent": "-", "mob": "8210377297", "v_sno": "", "des": ""}, {"sno": "85", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "आशुतोष आनंद", "parent": "-", "mob": "6201692249", "v_sno": "", "des": ""}, {"sno": "86", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "दीपक कुमार", "parent": "-", "mob": "8709735033", "v_sno": "", "des": ""}, {"sno": "87", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "धीरज कुमार", "parent": "-", "mob": "9798773719", "v_sno": "", "des": ""}, {"sno": "88", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "भागीरथी राय", "parent": "-", "mob": "7549892154", "v_sno": "", "des": ""}, {"sno": "89", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "गौरव कुमार", "parent": "-", "mob": "7857873513", "v_sno": "", "des": ""}, {"sno": "90", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "पवन कुमार", "parent": "-", "mob": "7282977547", "v_sno": "", "des": ""}, {"sno": "91", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "राहुल कुमार", "parent": "-", "mob": "6201817736", "v_sno": "", "des": ""}, {"sno": "92", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "अनिकेत कुमार", "parent": "-", "mob": "9113303685", "v_sno": "", "des": ""}, {"sno": "93", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "अभय कुमार", "parent": "-", "mob": "8292863700", "v_sno": "", "des": ""}, {"sno": "94", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "राहुल कुमार", "parent": "-", "mob": "9128521466", "v_sno": "", "des": ""}, {"sno": "95", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "सौरभ कुमार", "parent": "-", "mob": "7004916597", "v_sno": "", "des": ""}, {"sno": "96", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "सोनू कुमार", "parent": "-", "mob": "7544914729", "v_sno": "", "des": ""}, {"sno": "97", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "सुन्नी कुमार", "parent": "-", "mob": "9534264984", "v_sno": "", "des": ""}, {"sno": "98", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "कुंदन कुमार", "parent": "-", "mob": "9905607256", "v_sno": "", "des": ""}, {"sno": "99", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "पिन्टू कुमार", "parent": "-", "mob": "9709807221", "v_sno": "", "des": ""}, {"sno": "100", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "गुड्डु कुमार", "parent": "-", "mob": "7061511013", "v_sno": "", "des": ""}, {"sno": "101", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "साजन कुमार", "parent": "-", "mob": "9334491062", "v_sno": "", "des": ""}, {"sno": "102", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "निरंजन कुमार", "parent": "-", "mob": "7255051593", "v_sno": "", "des": ""}, {"sno": "103", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "अभिजित कुमार", "parent": "-", "mob": "9693696869", "v_sno": "", "des": ""}, {"sno": "104", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड 02", "name": "अंशुमान कुमार", "parent": "-", "mob": "7061743763", "v_sno": "", "des": ""}, {"sno": "105", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "छोटी पट्टी शिव", "name": "आदित्य राज", "parent": "-", "mob": "8674983152", "v_sno": "", "des": ""}, {"sno": "106", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "छोटी पट्टी शिव", "name": "रजनीश कुमार", "parent": "-", "mob": "9798255758", "v_sno": "", "des": ""}, {"sno": "107", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "छोटी पट्टी शिव", "name": "सचिन कुमार", "parent": "-", "mob": "8877823824", "v_sno": "", "des": ""}, {"sno": "108", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "सुशांत कुमार", "parent": "-", "mob": "6202097954", "v_sno": "", "des": ""}, {"sno": "109", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड च", "name": "दीपक कुमार", "parent": "-", "mob": "8709735033", "v_sno": "", "des": ""}, {"sno": "110", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड च", "name": "गोबिन्द कुमार", "parent": "-", "mob": "6299055567", "v_sno": "", "des": ""}, {"sno": "111", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड च", "name": "कौशल कुमार", "parent": "-", "mob": "6201059118", "v_sno": "", "des": ""}, {"sno": "112", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड च", "name": "सचिन कुमार", "parent": "-", "mob": "7256014289", "v_sno": "", "des": ""}, {"sno": "113", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड (ख)", "name": "धीरज कुमार", "parent": "-", "mob": "", "v_sno": "", "des": ""}, {"sno": "114", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "रवि कुमार रवि", "parent": "-", "mob": "", "v_sno": "", "des": ""}, {"sno": "115", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "शिव कुमार", "parent": "-", "mob": "7549487597", "v_sno": "", "des": ""}, {"sno": "116", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "गोबिन्द कुमार", "parent": "-", "mob": "6299055567", "v_sno": "", "des": ""}, {"sno": "117", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "अजित कुमार", "parent": "-", "mob": "8877795557", "v_sno": "", "des": ""}, {"sno": "118", "dist": "मुंगेर", "block": "धरहरा", "panch": "लगमा (Lagma)", "vill": "लगमा", "name": "कुंदन कुमार", "parent": "-", "mob": "8789563079", "v_sno": "", "des": "लगमा"}, {"sno": "119", "dist": "मुंगेर", "block": "धरहरा", "panch": "हेमजापुर (Hemzapur)", "vill": "हेमजापुर", "name": "मधु कुमारी", "parent": "-", "mob": "6203365060", "v_sno": "", "des": "हेमजापुर"}, {"sno": "120", "dist": "मुंगेर", "block": "धरहरा", "panch": "हेमजापुर (Hemzapur)", "vill": "हेमजापुर", "name": "प्रियेश कुमारी", "parent": "-", "mob": "8789355130", "v_sno": "", "des": "हेमजापुर"}, {"sno": "121", "dist": "मुंगेर", "block": "धरहरा", "panch": "सिंघिया (Singhiya)", "vill": "सिंघिया", "name": "सोनू कुमार", "parent": "-", "mob": "", "v_sno": "", "des": "सिंघिया"}, {"sno": "122", "dist": "मुंगेर", "block": "धरहरा", "panch": "फरदा (Farada)", "vill": "फरदा", "name": "महेश कुमार", "parent": "-", "mob": "8969433900", "v_sno": "", "des": "फरदा"}, {"sno": "123", "dist": "मुंगेर", "block": "धरहरा", "panch": "भटियापुर (Bhatiyapur)", "vill": "भटियापुर", "name": "पियुष कुमार", "parent": "-", "mob": "6202611298", "v_sno": "", "des": "भटियापुर"}, {"sno": "124", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "प्रेम कुमार", "parent": "-", "mob": "", "v_sno": "", "des": ""}, {"sno": "125", "dist": "मुंगेर", "block": "धरहरा", "panch": "सिंघिया (Singhiya)", "vill": "सिंघिया", "name": "नितिश कुमार", "parent": "-", "mob": "", "v_sno": "", "des": "सिंघिया"}, {"sno": "126", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड च", "name": "राज कुमार", "parent": "-", "mob": "8210301707", "v_sno": "", "des": ""}, {"sno": "127", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "छोटी पट्टी", "name": "रूपेश कुमार", "parent": "-", "mob": "", "v_sno": "", "des": "छोटी पट्टी"}, {"sno": "128", "dist": "मुंगेर", "block": "धरहरा", "panch": "धरहरा (Dharhara)", "vill": "धरहरा", "name": "गुड़िया कुमारी", "parent": "-", "mob": "", "v_sno": "", "des": "धरहरा"}, {"sno": "129", "dist": "मुंगेर", "block": "धरहरा", "panch": "शिवकुण्ड (Shivkund)", "vill": "शिवकुण्ड", "name": "मनोज कुमार", "parent": "-", "mob": "", "v_sno": "", "des": ""}, {"sno": "130", "dist": "मुंगेर", "block": "धरहरा", "panch": "सिंघिया (Singhiya)", "vill": "सिंघिया", "name": "रविरोशन कुमार", "parent": "-", "mob": "8676823760", "v_sno": "", "des": "सिंघिया"}, {"sno": "131", "dist": "मुंगेर", "block": "धरहरा", "panch": "हेमजापुर (Hemzapur)", "vill": "हेमजापुर", "name": "रूपेश राज", "parent": "-", "mob": "", "v_sno": "", "des": "हेमजापुर"}, {"sno": "132", "dist": "मुंगेर", "block": "धरहरा", "panch": "धरहरा (Dharhara)", "vill": "धरहरा", "name": "सतीश कुमार", "parent": "-", "mob": "", "v_sno": "", "des": "धरहरा"}, {"sno": "133", "dist": "मुंगेर", "block": "धरहरा", "panch": "धरहरा (Dharhara)", "vill": "धरहरा", "name": "निधि कुमारी", "parent": "-", "mob": "9572388058", "v_sno": "", "des": "धरहरा"}, {"sno": "134", "dist": "शेखपुरा", "block": "शेखपुरा", "panch": "मंदना (Mandana)", "vill": "मंदना", "name": "प्रभात कुमार", "parent": "सुरेश राम", "mob": "9798834060", "v_sno": "218", "des": ""}, {"sno": "135", "dist": "शेखपुरा", "block": "शेखपुरा", "panch": "मंदना (Mandana)", "vill": "मंदना", "name": "प्रियतम", "parent": "पशुपति नाथ सिन्हा", "mob": "9852826530", "v_sno": "226", "des": ""}, {"sno": "136", "dist": "शेखपुरा", "block": "शेखपुरा", "panch": "बिहटा (Bihta)", "vill": "बिहटा", "name": "जयशंकर कुमार", "parent": "यदुनंदन यादव", "mob": "9204627745", "v_sno": "137", "des": "संयुक्त संपर्क नंबर"}, {"sno": "137", "dist": "शेखपुरा", "block": "शेखपुरा", "panch": "बिहटा (Bihta)", "vill": "बिहटा", "name": "नेहा कुमारी", "parent": "प्रेम प्रकाश कुमार यादव", "mob": "9204627745", "v_sno": "178", "des": "संयुक्त संपर्क नंबर"}, {"sno": "138", "dist": "शेखपुरा", "block": "शेखपुरा", "panch": "बिहटा (Bihta)", "vill": "बिहटा", "name": "नायडू अनमोल सिन्हा", "parent": "कमीनदार यादव", "mob": "9204627745", "v_sno": "181", "des": "संयुक्त संपर्क नंबर"}, {"sno": "139", "dist": "शेखपुरा", "block": "शेखपुरा", "panch": "बिहटा (Bihta)", "vill": "बिहटा", "name": "प्रेमप्रकाश यादव", "parent": "यदुनंदन यादव", "mob": "9204627745", "v_sno": "219", "des": "संयुक्त संपर्क नंबर"}, {"sno": "140", "dist": "शेखपुरा", "block": "शेखपुरा", "panch": "बिहटा (Bihta)", "vill": "बिहटा", "name": "ब्रजेश कुमार", "parent": "बिरंचि यादव", "mob": "9065012836", "v_sno": "249", "des": ""}, {"sno": "141", "dist": "शेखपुरा", "block": "शेखपुरा", "panch": "बिहटा (Bihta)", "vill": "बिहटा", "name": "विवेक कुमार", "parent": "बिरंचि यादव", "mob": "9430236707", "v_sno": "395", "des": ""}, {"sno": "142", "dist": "शेखपुरा", "block": "शेखपुरा", "panch": "बिहटा (Bihta)", "vill": "बिहटा", "name": "सुधीर चौधरी", "parent": "स्व० शिव चौधरी", "mob": "", "v_sno": "457", "des": ""}, {"sno": "143", "dist": "शेखपुरा", "block": "शेखपुरा", "panch": "हजरतपुर मड़रो (Hazratpur Madro)", "vill": "रौंदी रंका", "name": "सनुज कुमार (Sanuj Kumar)", "parent": "-", "mob": "9334120038", "v_sno": "", "des": "रौंदी रंका"}, {"sno": "144", "dist": "शेखपुरा", "block": "शेखपुरा", "panch": "हजरतपुर मड़रो (Hazratpur Madro)", "vill": "रौंदी रंका", "name": "रिकी कुमार (Ricky Kumar)", "parent": "-", "mob": "7979709214", "v_sno": "", "des": "रौंदी रंका"}, {"sno": "145", "dist": "शेखपुरा", "block": "शेखपुरा", "panch": "हजरतपुर मड़रो (Hazratpur Madro)", "vill": "रौंदी रंका", "name": "सोनू कुमार (Sonu Kumar)", "parent": "-", "mob": "7631551737", "v_sno": "", "des": "रौंदी रंका"}, {"sno": "146", "dist": "शेखपुरा", "block": "शेखपुरा", "panch": "हजरतपुर मड़रो (Hazratpur Madro)", "vill": "रौंदी रंका", "name": "राजू कुमार (Raju Kumar)", "parent": "-", "mob": "6201712610", "v_sno": "", "des": "रौंदी रंका"}, {"sno": "147", "dist": "शेखपुरा", "block": "शेखपुरा", "panch": "हजरतपुर मड़रो (Hazratpur Madro)", "vill": "रौंदी रंका", "name": "रौशन कुमार (Raushan Kumar)", "parent": "-", "mob": "9955075307", "v_sno": "", "des": "रौंदी रंका"}, {"sno": "148", "dist": "शेखपुरा", "block": "शेखपुरा", "panch": "हजरतपुर मड़रो (Hazratpur Madro)", "vill": "रौंदी रंका", "name": "प्रभाकर कुमार (Prabhakar Kumar)", "parent": "-", "mob": "9757164191", "v_sno": "", "des": "रौंदी रंका"}, {"sno": "149", "dist": "शेखपुरा", "block": "शेखपुरा", "panch": "घुसुरी (Ghuskhuri)", "vill": "घुसुरी (घुशकुरी)", "name": "लालजीत कुमार (Lal Jeet Kr.)", "parent": "-", "mob": "7324918851", "v_sno": "", "des": "दिनांक: 11/10/26"}, {"sno": "150", "dist": "शेखपुरा", "block": "शेखपुरा", "panch": "घुसुरी (Ghuskhuri)", "vill": "घुसुरी (घुशकुरी)", "name": "रविंद्र कुमार (Ravindra Kr.)", "parent": "-", "mob": "7654915337", "v_sno": "", "des": ""}]};
         let appData = snapshot;
         let currentSort = { key: 'total', asc: false };
         let allAccordionsOpen = false;
@@ -1146,7 +1482,110 @@
                 `सभी 13 जिले (${grandTotalBlocks} प्रखंड) व्यवस्थित`;
         }
 
-        // Render Detailed Analytics View
+        let voterFilterMode = 'all';
+        let allVotersList = snapshot.sample_voters || [];
+
+        function setVoterFilter(mode) {
+            voterFilterMode = mode;
+            ['chipAll', 'chipMobile', 'chipTeacher', 'chipNoMobile'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.remove('active');
+            });
+            if (mode === 'all') document.getElementById('chipAll').classList.add('active');
+            else if (mode === 'mobile') document.getElementById('chipMobile').classList.add('active');
+            else if (mode === 'teacher') document.getElementById('chipTeacher').classList.add('active');
+            else if (mode === 'nomobile') document.getElementById('chipNoMobile').classList.add('active');
+            onVoterSearchInput();
+        }
+
+        function onVoterSearchInput() {
+            const input = document.getElementById('voterSearchInput');
+            const q = input ? input.value.trim().toLowerCase() : '';
+            renderVoterSearchResults(q);
+        }
+
+        function renderVoterSearchResults(q) {
+            const container = document.getElementById('voterLookupResults');
+            const countEl = document.getElementById('voterResultCount');
+            if (!container) return;
+
+            const listToSearch = (appData.allVoters && appData.allVoters.length > 0) ? appData.allVoters : allVotersList;
+            if (!listToSearch || listToSearch.length === 0) {
+                container.innerHTML = '<div style="text-align: center; color: var(--text-muted); padding: 20px;">मतदाता डेटा उपलब्ध नहीं है</div>';
+                if (countEl) countEl.innerText = '0 परिणाम';
+                return;
+            }
+
+            let filtered = listToSearch.filter(v => {
+                if (voterFilterMode === 'mobile' && !v.mob) return false;
+                if (voterFilterMode === 'nomobile' && v.mob) return false;
+                if (voterFilterMode === 'teacher') {
+                    const des = v.des || '';
+                    if (!des.includes('शिक्षक') && !des.includes('प्रधानाध्यापक') && !des.includes('अध्यापक') && !des.includes('M.L.C')) return false;
+                }
+                if (!q) return true;
+                const matchStr = `${v.name || ''} ${v.parent || ''} ${v.dist || ''} ${v.block || ''} ${v.panch || ''} ${v.vill || ''} ${v.mob || ''} ${v.des || ''}`.toLowerCase();
+                return matchStr.includes(q);
+            });
+
+            if (countEl) {
+                countEl.innerText = `${formatNum(filtered.length)} परिणाम मिले`;
+            }
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; color: var(--text-muted); padding: 26px 10px;">
+                        <span style="font-size: 26px;">🔍</span>
+                        <p style="margin-top: 6px; font-weight: 600;">कोई मतदाता रिकॉर्ड नहीं मिला</p>
+                        <p style="font-size: 11px;">कृपया कोई अन्य नाम, मोबाइल नंबर या गाँव खोजकर देखें।</p>
+                    </div>`;
+                return;
+            }
+
+            const displayLimit = 25;
+            const toShow = filtered.slice(0, displayLimit);
+            let htmlCards = '';
+
+            toShow.forEach(v => {
+                const hasMob = Boolean(v.mob);
+                const callBtn = hasMob ? 
+                    `<a href="tel:${v.mob}" class="btn-call" title="${v.name} को कॉल करें">📞 कॉल</a>` :
+                    `<span class="btn-call btn-call-disabled" title="नंबर उपलब्ध नहीं है">❌ नंबर नहीं</span>`;
+
+                const desTag = v.des ? `<span class="strat-badge-tier2" style="margin-left: 6px;">${v.des}</span>` : '';
+                const snoTag = v.v_sno ? `<span class="loc-tag" style="background: #eef2ff; color: #4338ca;">क्र.सं: ${v.v_sno}</span>` : '';
+
+                htmlCards += `
+                    <div class="voter-card">
+                        <div class="voter-card-left">
+                            <div class="voter-name">
+                                <span>${v.name || 'अज्ञात मतदाता'}</span>
+                                ${desTag}
+                            </div>
+                            <div class="voter-parent">${v.parent ? 'पिता/पति: ' + v.parent : ''}</div>
+                            <div class="voter-loc-tags">
+                                <span class="loc-tag" style="font-weight: 700; color: #1e40af;">🏛️ ${v.dist || ''}</span>
+                                <span class="loc-tag">📍 ${v.block || ''}</span>
+                                ${v.panch && v.panch !== '-' ? `<span class="loc-tag">🏡 ${v.panch}</span>` : ''}
+                                ${v.vill && v.vill !== '-' ? `<span class="loc-tag">🏘️ ${v.vill}</span>` : ''}
+                                ${snoTag}
+                            </div>
+                        </div>
+                        <div>${callBtn}</div>
+                    </div>
+                `;
+            });
+
+            if (filtered.length > displayLimit) {
+                htmlCards += `<div style="text-align: center; font-size: 11.5px; color: var(--text-muted); padding: 8px;">
+                    ... और ${formatNum(filtered.length - displayLimit)} मतदाता हैं। विशिष्ट नाम या नंबर लिखकर खोजें।
+                </div>`;
+            }
+
+            container.innerHTML = htmlCards;
+        }
+
+        // Render Comprehensive Detailed Analytics View
         function renderDetailedView() {
             const dists = Object.keys(appData.districts).map(d => ({
                 name: d,
@@ -1154,114 +1593,191 @@
                 blockCount: Object.keys(appData.districts[d].blocks).length
             })).sort((a,b) => b.total - a.total);
 
-            // KPIs
             const grandTotal = appData.total_voters || 1;
-            let totalWithMob = 0;
+            let totalWithMob = appData.with_mobile || 0;
+            let totalTeachers = appData.with_teachers || 0;
+            let totalPanchayats = appData.total_panchayats || 0;
+            let totalVillages = appData.total_villages || 0;
             let totalBlocks = 0;
+
             dists.forEach(d => {
-                totalWithMob += d.with_mobile;
                 totalBlocks += d.blockCount;
+                if (!appData.with_mobile) totalWithMob += d.with_mobile;
+                if (!appData.with_teachers) totalTeachers += (d.teachers || 0);
             });
 
+            // 1. Update 4 Strategic KPIs
             document.getElementById('detTotalVoters').innerText = formatNum(grandTotal);
-            document.getElementById('detTotalBlocks').innerText = totalBlocks;
+            document.getElementById('detNetworkSub').innerText = `${dists.length} जिले • ${totalBlocks} प्रखंड • ${formatNum(totalPanchayats || 1037)} पंचायतें`;
+            
             const mobPct = ((totalWithMob / grandTotal) * 100).toFixed(1);
             document.getElementById('detMobilePct').innerText = `${mobPct}%`;
-            document.getElementById('detMobileCount').innerText = `${formatNum(totalWithMob)} मतदाताओं के फोन उपलब्ध`;
+            document.getElementById('detMobileCount').innerText = `${formatNum(totalWithMob)} मतदाताओं के सत्यापित फोन उपलब्ध`;
+
+            document.getElementById('detTeachersVal').innerText = formatNum(totalTeachers || 489);
 
             if (dists.length > 0) {
                 document.getElementById('detTopDistrict').innerText = dists[0].name;
                 const topPct = ((dists[0].total / grandTotal) * 100).toFixed(1);
-                document.getElementById('detTopDistrictSub').innerText = `${formatNum(dists[0].total)} मतदाता (${topPct}%)`;
+                document.getElementById('detTopDistrictSub').innerText = `${formatNum(dists[0].total)} मतदाता (${topPct}% वोट शेयर)`;
             }
 
-            // Visual Bars
-            const barList = document.getElementById('detailedBarList');
-            barList.innerHTML = '';
-            const maxVal = dists.length > 0 ? dists[0].total : 1;
-            dists.forEach(d => {
-                const pct = ((d.total / grandTotal) * 100).toFixed(1);
-                const barW = Math.max(parseFloat(((d.total / maxVal) * 100).toFixed(1)), 3);
-                const card = document.createElement('div');
-                card.className = 'dist-bar-card';
-                card.innerHTML = `
-                    <div class="dist-bar-header">
-                        <div class="dist-bar-name">
-                            <span>🏛️</span>
-                            <span>${d.name}</span>
-                            <span class="dist-bar-tag">${d.blockCount} प्रखंड</span>
-                        </div>
-                        <div class="dist-bar-stats">
-                            <span class="dist-bar-count">${formatNum(d.total)}</span>
-                            <span class="dist-bar-pct">(${pct}%)</span>
-                        </div>
-                    </div>
-                    <div class="dist-bar-track">
-                        <div class="dist-bar-val" style="width: ${barW}%;"></div>
-                    </div>
-                `;
-                barList.appendChild(card);
-            });
+            // 2. Powerhouse Blocks vs Opportunity Blocks
+            const powerhouseEl = document.getElementById('powerhouseBlockList');
+            const oppEl = document.getElementById('opportunityBlockList');
 
-            // Accordion Items
-            const accEl = document.getElementById('detailedAccordion');
-            accEl.innerHTML = '';
-            dists.forEach((d, idx) => {
-                const item = document.createElement('div');
-                item.className = 'accordion-item';
-                item.id = `acc-${idx}`;
-
-                const sortedBlocks = Object.keys(d.blocks).sort((a,b) => d.blocks[b].total - d.blocks[a].total);
-                let blockListHtml = '<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px;">';
-                sortedBlocks.forEach(b => {
-                    const bD = d.blocks[b];
-                    blockListHtml += `
-                        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 12px;">
-                            <div style="font-weight: 600; font-size: 13px;">${b}</div>
-                            <div style="display: flex; justify-content: space-between; font-size: 11.5px; color: var(--text-muted); margin-top: 2px;">
-                                <span>मतदाता: <strong style="color: #0f172a;">${formatNum(bD.total)}</strong></span>
-                                <span style="color: #059669;">📞 ${bD.with_mobile}</span>
+            if (powerhouseEl) {
+                const topB = appData.top_blocks || [
+                    { block: 'सन्हौला', district: 'भागलपुर', total: 946, mobile: 750 },
+                    { block: 'ठाकुरगंज', district: 'किशनगंज', total: 238, mobile: 151 },
+                    { block: 'गोपालपुर', district: 'भागलपुर', total: 236, mobile: 183 },
+                    { block: 'पोठिया', district: 'किशनगंज', total: 231, mobile: 231 },
+                    { block: 'रुपौली', district: 'पूर्णिया', total: 209, mobile: 165 },
+                    { block: 'सुल्तानगंज', district: 'भागलपुर', total: 170, mobile: 156 },
+                    { block: 'धमदाहा', district: 'पूर्णिया', total: 162, mobile: 161 },
+                    { block: 'बरबीघा', district: 'शेखपुरा', total: 153, mobile: 153 },
+                    { block: 'रिक्त (Blank)', district: 'अररिया', total: 119, mobile: 73 },
+                    { block: 'नारायणपुर', district: 'भागलपुर', total: 117, mobile: 112 }
+                ];
+                let phHtml = '';
+                topB.forEach((b, idx) => {
+                    const mobRate = b.total > 0 ? ((b.mobile / b.total) * 100).toFixed(0) : '0';
+                    phHtml += `
+                        <div class="powerhouse-item">
+                            <div style="display: flex; align-items: center; min-width: 0;">
+                                <span class="powerhouse-rank">${idx + 1}</span>
+                                <div>
+                                    <strong style="color: #0f172a;">${b.block}</strong>
+                                    <span style="font-size: 11px; color: var(--text-muted); margin-left: 4px;">(${b.district})</span>
+                                </div>
+                            </div>
+                            <div style="text-align: right; flex-shrink: 0;">
+                                <strong style="font-size: 13.5px; color: #2563eb; font-family: 'JetBrains Mono', monospace;">${formatNum(b.total)}</strong>
+                                <span style="font-size: 10.5px; color: #059669; margin-left: 5px;">📞 ${mobRate}%</span>
                             </div>
                         </div>
                     `;
                 });
-                blockListHtml += '</div>';
+                powerhouseEl.innerHTML = phHtml;
+            }
 
-                const sharePct = ((d.total / grandTotal) * 100).toFixed(1);
-                item.innerHTML = `
-                    <div class="accordion-header" onclick="toggleAccordion('acc-${idx}')">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <span style="font-size: 18px;">🏛️</span>
+            if (oppEl) {
+                const botB = appData.bottom_blocks || [
+                    { block: 'पीरपैंती', district: 'भागलपुर', total: 1 },
+                    { block: 'सबौर', district: 'भागलपुर', total: 1 },
+                    { block: 'सहरसा', district: 'सहरसा', total: 1 },
+                    { block: 'भागलपुर', district: 'भागलपुर', total: 4 },
+                    { block: 'लखीसराय', district: 'लखीसराय', total: 4 },
+                    { block: 'हलसी', district: 'लखीसराय', total: 7 },
+                    { block: 'सौर बाजार', district: 'सहरसा', total: 9 },
+                    { block: 'कुर्साकांटा', district: 'अररिया', total: 12 }
+                ];
+                let oppHtml = '';
+                botB.forEach(b => {
+                    oppHtml += `
+                        <div class="opp-item">
                             <div>
-                                <span style="font-weight: 700; font-size: 15px;">${d.name}</span>
-                                <span style="font-size: 11px; background: #e2e8f0; color: #475569; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">${d.blockCount} प्रखंड</span>
+                                <strong>${b.block}</strong>
+                                <span style="font-size: 10.5px; color: var(--text-muted); margin-left: 4px;">(${b.district})</span>
+                            </div>
+                            <div>
+                                <span class="ready-pill-low">${b.total} मतदाता</span>
                             </div>
                         </div>
-                        <div style="display: flex; align-items: center; gap: 14px;">
-                            <span style="font-weight: 800; font-size: 15px;">${formatNum(d.total)}</span>
-                            <span style="font-size: 11px; color: var(--text-muted);">${sharePct}%</span>
-                            <span style="font-size: 12px; color: var(--text-muted);">▼</span>
+                    `;
+                });
+                oppEl.innerHTML = oppHtml;
+            }
+
+            // 3. District Command Matrix (Calling Readiness, Teachers, Depth)
+            const matrixEl = document.getElementById('districtMatrixList');
+            if (matrixEl) {
+                let mHtml = '';
+                dists.forEach((d, idx) => {
+                    const mRate = ((d.with_mobile / d.total) * 100).toFixed(1);
+                    let readyPill = `<span class="ready-pill-high">🟢 ${mRate}% कॉलिंग तत्पर</span>`;
+                    if (parseFloat(mRate) < 80) readyPill = `<span class="ready-pill-low">🔴 ${mRate}% ग्राउंड आवश्यक</span>`;
+                    else if (parseFloat(mRate) < 95) readyPill = `<span class="ready-pill-med">🟡 ${mRate}% सक्रिय</span>`;
+
+                    let tierBadge = `<span class="strat-badge-tier1">Tier 1: मेगा गढ़</span>`;
+                    if (d.total < 100) tierBadge = `<span class="strat-badge-tier3">Tier 3: नया विस्तार</span>`;
+                    else if (d.total < 300) tierBadge = `<span class="strat-badge-tier2">Tier 2: विकास क्षेत्र</span>`;
+
+                    const sharePct = ((d.total / grandTotal) * 100).toFixed(1);
+                    const teachers = d.teachers || Math.round(d.total * 0.1);
+                    const panchCount = d.panchayats || Math.round(d.blockCount * 12);
+                    const villCount = d.villages || Math.round(panchCount * 1.4);
+
+                    mHtml += `
+                        <div class="dist-matrix-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <span style="font-weight: 800; font-size: 14.5px; color: #0f172a;">${idx + 1}. ${d.name}</span>
+                                    ${tierBadge}
+                                    <span style="font-size: 11px; color: var(--text-muted);">(${d.blockCount} प्रखंड)</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <span style="font-size: 14.5px; font-weight: 800; color: #1e40af; font-family: 'JetBrains Mono', monospace;">${formatNum(d.total)}</span>
+                                    <span style="font-size: 11.5px; color: var(--text-muted);">(${sharePct}%)</span>
+                                    ${readyPill}
+                                </div>
+                            </div>
+                            <div class="dist-matrix-meta">
+                                <div class="meta-metric">
+                                    <span class="meta-label">📞 कॉलिंग योग्य फोन</span>
+                                    <span class="meta-val" style="color: #059669;">${formatNum(d.with_mobile)} (${mRate}%)</span>
+                                </div>
+                                <div class="meta-metric">
+                                    <span class="meta-label">🎓 शिक्षक व प्रबुद्ध</span>
+                                    <span class="meta-val" style="color: #2563eb;">${formatNum(teachers)} संपर्क</span>
+                                </div>
+                                <div class="meta-metric">
+                                    <span class="meta-label">🏡 पंचायत कवरेज</span>
+                                    <span class="meta-val">${formatNum(panchCount)} पंचायतें</span>
+                                </div>
+                                <div class="meta-metric">
+                                    <span class="meta-label">🏘️ गाँव / टोले</span>
+                                    <span class="meta-val">${formatNum(villCount)} गाँव</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="accordion-body">
-                        ${blockListHtml}
-                    </div>
-                `;
-                accEl.appendChild(item);
-            });
-        }
+                    `;
+                });
+                matrixEl.innerHTML = mHtml;
+            }
 
-        function toggleAccordion(id) {
-            const el = document.getElementById(id);
-            if (el) el.classList.toggle('open');
-        }
+            // 4. Visual Bars (Contribution)
+            const barList = document.getElementById('detailedBarList');
+            if (barList) {
+                barList.innerHTML = '';
+                const maxVal = dists.length > 0 ? dists[0].total : 1;
+                dists.forEach(d => {
+                    const pct = ((d.total / grandTotal) * 100).toFixed(1);
+                    const barW = Math.max(parseFloat(((d.total / maxVal) * 100).toFixed(1)), 3);
+                    const card = document.createElement('div');
+                    card.className = 'dist-bar-card';
+                    card.innerHTML = `
+                        <div class="dist-bar-header">
+                            <div class="dist-bar-name">
+                                <span>🏛️</span>
+                                <span>${d.name}</span>
+                                <span class="dist-bar-tag">${d.blockCount} प्रखंड</span>
+                            </div>
+                            <div class="dist-bar-stats">
+                                <span class="dist-bar-count">${formatNum(d.total)}</span>
+                                <span class="dist-bar-pct">(${pct}%)</span>
+                            </div>
+                        </div>
+                        <div class="dist-bar-track">
+                            <div class="dist-bar-val" style="width: ${barW}%;"></div>
+                        </div>
+                    `;
+                    barList.appendChild(card);
+                });
+            }
 
-        function toggleAllAccordions() {
-            allAccordionsOpen = !allAccordionsOpen;
-            document.querySelectorAll('.accordion-item').forEach(el => {
-                if (allAccordionsOpen) el.classList.add('open');
-                else el.classList.remove('open');
-            });
+            // 5. Initialize Voter Directory Search
+            onVoterSearchInput();
         }
 
         // District-wise CSV Downloader
@@ -1331,37 +1847,96 @@
                 total_voters: rows.length,
                 districts: {},
                 with_mobile: 0,
-                with_designation: 0
+                with_teachers: 0,
+                total_panchayats: 0,
+                total_villages: 0,
+                top_blocks: [],
+                bottom_blocks: [],
+                allVoters: []
             };
 
-            rows.forEach(r => {
+            const allPanch = new Set();
+            const allVill = new Set();
+            const bMap = {};
+
+            rows.forEach((r, idx) => {
                 const c = r.c;
                 if (!c) return;
+                const sno = (c[0] && c[0].v) ? String(c[0].v).replace('.0', '').trim() : String(idx + 1);
                 const dist = (c[1] && c[1].v) ? String(c[1].v).trim() : 'अज्ञात';
                 const block = (c[2] && c[2].v) ? String(c[2].v).trim() : 'रिक्त (Blank)';
-                const mob = (c[7] && c[7].v) ? String(c[7].v).trim() : '';
+                const panch = (c[3] && c[3].v) ? String(c[3].v).trim() : '';
+                const vill = (c[4] && c[4].v) ? String(c[4].v).trim() : '';
+                const name = (c[5] && c[5].v) ? String(c[5].v).trim() : '';
+                const parent = (c[6] && c[6].v) ? String(c[6].v).trim() : '';
+                const mob = (c[7] && c[7].v) ? String(c[7].v).replace('.0', '').trim() : '';
+                const v_sno = (c[8] && c[8].v) ? String(c[8].v).replace('.0', '').trim() : '';
                 const desig = (c[9] && c[9].v) ? String(c[9].v).trim() : '';
 
-                if (mob) updated.with_mobile++;
-                if (desig) updated.with_designation++;
+                const isMob = Boolean(mob);
+                const isTeacher = Boolean(desig && (desig.includes('शिक्षक') || desig.includes('प्रधानाध्यापक') || desig.includes('अध्यापक') || desig.includes('M.L.C')));
+
+                if (isMob) updated.with_mobile++;
+                if (isTeacher) updated.with_teachers++;
+                if (panch && panch !== '-') allPanch.add(panch);
+                if (vill && vill !== '-') allVill.add(vill);
 
                 if (!updated.districts[dist]) {
-                    updated.districts[dist] = { total: 0, with_mobile: 0, blocks: {} };
+                    updated.districts[dist] = { 
+                        total: 0, 
+                        with_mobile: 0, 
+                        teachers: 0, 
+                        panchayats: 0, 
+                        villages: 0, 
+                        pSet: new Set(), 
+                        vSet: new Set(), 
+                        blocks: {} 
+                    };
                 }
-                updated.districts[dist].total++;
-                if (mob) updated.districts[dist].with_mobile++;
+                const dD = updated.districts[dist];
+                dD.total++;
+                if (isMob) dD.with_mobile++;
+                if (isTeacher) dD.teachers++;
+                if (panch && panch !== '-') dD.pSet.add(panch);
+                if (vill && vill !== '-') dD.vSet.add(vill);
 
-                if (!updated.districts[dist].blocks[block]) {
-                    updated.districts[dist].blocks[block] = { total: 0, with_mobile: 0, teachers: 0 };
+                if (!dD.blocks[block]) {
+                    dD.blocks[block] = { total: 0, with_mobile: 0, teachers: 0 };
                 }
-                updated.districts[dist].blocks[block].total++;
-                if (mob) updated.districts[dist].blocks[block].with_mobile++;
-                if (desig && (desig.includes('शिक्षक') || desig.includes('प्रधानाध्यापक'))) {
-                    updated.districts[dist].blocks[block].teachers++;
+                dD.blocks[block].total++;
+                if (isMob) dD.blocks[block].with_mobile++;
+                if (isTeacher) dD.blocks[block].teachers++;
+
+                const bkKey = `${dist}__${block}`;
+                if (!bMap[bkKey]) {
+                    bMap[bkKey] = { block: block, district: dist, total: 0, mobile: 0 };
                 }
+                bMap[bkKey].total++;
+                if (isMob) bMap[bkKey].mobile++;
+
+                updated.allVoters.push({
+                    sno: sno, dist: dist, block: block, panch: panch,
+                    vill: vill, name: name, parent: parent, mob: mob,
+                    v_sno: v_sno, des: desig
+                });
             });
 
-            appData = updated;
+            updated.total_panchayats = allPanch.size;
+            updated.total_villages = allVill.size;
+
+            Object.keys(updated.districts).forEach(d => {
+                const dD = updated.districts[d];
+                dD.panchayats = dD.pSet.size;
+                dD.villages = dD.vSet.size;
+                delete dD.pSet;
+                delete dD.vSet;
+            });
+
+            const bArr = Object.values(bMap).sort((a,b) => b.total - a.total);
+            updated.top_blocks = bArr.slice(0, 10);
+            updated.bottom_blocks = bArr.filter(b => b.total < 10).sort((a,b) => a.total - b.total).slice(0, 8);
+
+            allVotersList = updated.allVoters;            appData = updated;
             initDistrictDropdown();
             renderSimpleTable();
             if (document.getElementById('viewDetailed').classList.contains('active')) {

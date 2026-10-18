@@ -9,3 +9,9 @@ Thumbs.db
 # Python
 __pycache__/
 *.py[cod]
+
+# Temp files and models
+temp_inspect/
+ocr_models/
+build_final_voter_workbook.py
+build_new_excel.py

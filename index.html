@@ -1397,7 +1397,7 @@
             <div class="excel-sheet-card">
                 <!-- Quick Summary Ribbon (Clean & Ultra-Compact) -->
                 <div class="excel-summary-strip">
-                    <span class="summary-pill">👥 कुल डेटा: <strong id="ribbonVoters">4,709</strong></span>
+                    <span class="summary-pill">👥 कुल डेटा: <strong id="ribbonVoters">8,544</strong></span>
                     <span class="summary-pill">•</span>
                     <span class="summary-pill">🏛️ <strong id="ribbonDistricts">14</strong> जिले</span>
                     <span class="summary-pill">•</span>
@@ -2262,7 +2262,7 @@
         }
 
         // ==============================================================
-        // OFFICIAL 14 DISTRICTS DEFINITION (NO 15TH DISTRICT PERMITTED)
+        // OFFICIAL 14 DISTRICTS DEFINITION & NORMALIZATION
         // ==============================================================
         const VALID_14_DISTRICTS = [
             'भागलपुर', 'पूर्णिया', 'किशनगंज', 'सहरसा', 'अररिया', 
@@ -2270,6 +2270,27 @@
             'कटिहार', 'लखीसराय', 'जमुई', 'मधेपुरा'
         ];
         const VALID_DIST_SET = new Set(VALID_14_DISTRICTS);
+
+        function normalizeDistrict(name) {
+            if (!name) return '';
+            let d = String(name).trim();
+            if (d.normalize) d = d.normalize('NFC');
+            // Canonicalize 14 districts and common spelling variations
+            if (d === 'बाँका' || d === 'बांका') return 'बांका';
+            if (d === 'पूर्णिया' || d === 'पुर्णिया') return 'पूर्णिया';
+            if (d === 'शेखपुरा' || d === 'शेखपूरा') return 'शेखपुरा';
+            if (d === 'मधेपुरा' || d === 'मधेपूरा') return 'मधेपुरा';
+            if (d === 'लखीसराय' || d === 'लखिसराय') return 'लखीसराय';
+            if (d === 'खगड़िया' || d === 'खगड़िया') return 'खगड़िया';
+            return d;
+        }
+
+        function cleanNumberStr(val) {
+            if (val === null || val === undefined || val === '') return '';
+            if (typeof val === 'number') return String(Math.round(val));
+            let s = String(val).trim();
+            return s.replace(/\.0+$/, '');
+        }
 
         // Google Sheets Live JSONP Sync
         function fetchLiveGoogleSheetData() {
@@ -2338,19 +2359,19 @@
                 if (!c) return;
 
                 const distRaw = (c[1] && c[1].v) ? String(c[1].v).trim() : '';
+                const dist = normalizeDistrict(distRaw);
                 // STRICT FILTER: Ignore empty trailing rows and non-14 districts
-                if (!distRaw || !VALID_DIST_SET.has(distRaw)) return;
-                const dist = distRaw;
+                if (!dist || !VALID_DIST_SET.has(dist)) return;
 
-                const sno = (c[0] && c[0].v) ? String(c[0].v).replace('.0', '').trim() : String(updated.allVoters.length + 1);
+                const sno = (c[0] && c[0].v) ? cleanNumberStr(c[0].v) : String(updated.allVoters.length + 1);
                 const blockRaw = (c[2] && c[2].v) ? String(c[2].v).trim() : '';
                 const block = isBlankBlock(blockRaw) ? 'रिक्त (Blank)' : blockRaw;
                 const panch = (c[3] && c[3].v) ? String(c[3].v).trim() : '';
                 const vill = (c[4] && c[4].v) ? String(c[4].v).trim() : '';
                 const name = (c[5] && c[5].v) ? String(c[5].v).trim() : '';
                 const parent = (c[6] && c[6].v) ? String(c[6].v).trim() : '';
-                const mob = (c[7] && c[7].v) ? String(c[7].v).replace('.0', '').trim() : '';
-                const v_sno = (c[8] && c[8].v) ? String(c[8].v).replace('.0', '').trim() : '';
+                const mob = (c[7] && c[7].v) ? cleanNumberStr(c[7].v) : '';
+                const v_sno = (c[8] && c[8].v) ? cleanNumberStr(c[8].v) : '';
                 const desig = (c[9] && c[9].v) ? String(c[9].v).trim() : '';
 
                 const isMob = Boolean(mob && mob.length >= 10);
@@ -2513,7 +2534,7 @@
                         key = `bn_${dist}__${block}__${cleanN}`;
                     }
                 } else if (dupCriteria === 'mobile') {
-                    const cleanM = (v.mob || '').replace('.0', '').replace(/[^0-9]/g, '');
+                    const cleanM = cleanNumberStr(v.mob).replace(/[^0-9]/g, '');
                     if (cleanM.length >= 10) {
                         key = `mob_${cleanM.slice(-10)}`;
                     }
